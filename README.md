@@ -1,1 +1,1 @@
-# org.javacream.training.jee7
+# org.javacream.training.jee
