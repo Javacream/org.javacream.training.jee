@@ -1,13 +1,19 @@
 package org.javacream.books.isbngenerator.impl;
 
-import java.util.Random;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.util.idgenerator.api.IdGeneratorService;
+import org.javacream.util.idgenerator.api.IdGeneratorStrategy;
 
-public class RandomIsbnGenerator implements IsbnGenerator {
+@ApplicationScoped
+public class IsbnGeneratorImpl implements IsbnGenerator {
 
 	private String prefix;
 	private String countryCode;
+	@Inject @IdGeneratorStrategy(strategy="sequence")
+	private IdGeneratorService idGeneratorService;
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -15,14 +21,8 @@ public class RandomIsbnGenerator implements IsbnGenerator {
 	public void setCountryCode(String suffix) {
 		this.countryCode = suffix;
 	}
-	private Random random;
-	
-	{
-		random = new Random(this.hashCode() + System.currentTimeMillis());
-	}
-	
 	public String next(){
-		return prefix + random.nextInt() + countryCode;
+		return prefix + idGeneratorService.next() + countryCode;
 	}
 
 	public String getPrefix(){
