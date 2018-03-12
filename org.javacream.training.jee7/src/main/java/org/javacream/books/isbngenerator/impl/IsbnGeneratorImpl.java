@@ -10,8 +10,8 @@ import org.javacream.util.idgenerator.api.IdGeneratorStrategy;
 @ApplicationScoped
 public class IsbnGeneratorImpl implements IsbnGenerator {
 
-	private String prefix;
-	private String countryCode;
+	private String prefix = "ISBN:";
+	private String countryCode = "-de";
 	@Inject @IdGeneratorStrategy(strategy="sequence")
 	private IdGeneratorService idGeneratorService;
 	public String getCountryCode() {
