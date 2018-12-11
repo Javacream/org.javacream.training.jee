@@ -97,7 +97,7 @@ public class CollectionsTest {
         Stream<String> filtered = stream.filter(  (s) -> s.startsWith("H"));
         Stream<String> transformedToUpperCase = filtered.map((s) -> s.toUpperCase());
         Stream<Integer> transformedToLength = transformedToUpperCase.map((s) -> s.length());
-        transformedToLength.forEach(System.out::println);
+        transformedToLength.forEach((element) -> System.out.println(element));
 
 
         class ForEachPrinter implements Consumer<Integer>{
