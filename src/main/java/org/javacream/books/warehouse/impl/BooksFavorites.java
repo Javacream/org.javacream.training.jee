@@ -7,15 +7,17 @@ import java.util.HashSet;
 
 public class BooksFavorites {
     private HashSet<Book> favorites = new HashSet<Book>();
-    public void add(Book... favorite){
+
+    public void add(Book... favorite) {
         favorites.addAll(Arrays.asList(favorite));
     }
-    public void remove(Book favorite){
+
+    public void remove(Book favorite) {
         favorites.remove(favorite);
     }
 
-    public void show(){
-        for (Book b: favorites){
+    public void show() {
+        for (Book b : favorites) {
             System.out.println(b.info());
         }
     }

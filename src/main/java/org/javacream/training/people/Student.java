@@ -7,13 +7,14 @@ public class Student extends Person {
     }
 
     private String university;
-    public void study(){
+
+    public void study() {
         System.out.println("studying...");
     }
 
     @Override
     public String sayHello() {
-        String personGreeting =  super.sayHello();
+        String personGreeting = super.sayHello();
         personGreeting += ", studying at university " + this.university;
         return personGreeting;
     }

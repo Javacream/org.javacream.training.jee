@@ -6,9 +6,11 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CollectionsTest {
@@ -94,13 +96,13 @@ public class CollectionsTest {
         });
 
         Stream<String> stream = names.stream();
-        Stream<String> filtered = stream.filter(  (s) -> s.startsWith("H"));
+        Stream<String> filtered = stream.filter((s) -> s.startsWith("H"));
         Stream<String> transformedToUpperCase = filtered.map((s) -> s.toUpperCase());
         Stream<Integer> transformedToLength = transformedToUpperCase.map((s) -> s.length());
-        transformedToLength.forEach((element) -> System.out.println(element));
+        List<Integer> lengthValues = transformedToLength.collect(Collectors.toList());//  forEach((element) -> System.out.println(element));
 
 
-        class ForEachPrinter implements Consumer<Integer>{
+        class ForEachPrinter implements Consumer<Integer> {
 
             @Override
             public void accept(Integer element) {
@@ -108,21 +110,21 @@ public class CollectionsTest {
             }
         }
 
-        class ToLengthMapper implements Function<String, Integer>{
+        class ToLengthMapper implements Function<String, Integer> {
 
             @Override
             public Integer apply(String s) {
                 return s.length();
             }
         }
-        class ToUpperMapper implements Function<String, String>{
+        class ToUpperMapper implements Function<String, String> {
 
             @Override
             public String apply(String s) {
                 return s.toUpperCase();
             }
         }
-        class FilterFirstLetterH implements Predicate<String>{
+        class FilterFirstLetterH implements Predicate<String> {
 
             @Override
             public boolean test(String s) {
@@ -130,7 +132,7 @@ public class CollectionsTest {
             }
         }
         Stream<String> stream2 = names.stream();
-        Stream<String> filtered2 = stream2.filter( new FilterFirstLetterH());
+        Stream<String> filtered2 = stream2.filter(new FilterFirstLetterH());
         Stream<String> transformedToUpperCase2 = filtered2.map(new ToUpperMapper());
         Stream<Integer> transformedToLength2 = transformedToUpperCase2.map(new ToLengthMapper());
         transformedToLength2.forEach(new ForEachPrinter());

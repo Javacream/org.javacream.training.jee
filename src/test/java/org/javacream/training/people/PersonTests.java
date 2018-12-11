@@ -9,7 +9,7 @@ public class PersonTests {
     private Person p;
 
     @Before
-    public void init(){
+    public void init() {
         //Testdaten definieren
         final String lastname = "Sawitzki";
         final String firstname = "Rainer";
@@ -17,8 +17,9 @@ public class PersonTests {
         //Erzeugen des Testobjekts
         p = new Person("Sawitzki", "Rainer", 183);
     }
+
     @Test
-    public void sayHelloTest(){
+    public void sayHelloTest() {
         //Expected Result
         final String expectedResult = "Hello, my name is Rainer Sawitzki!!";
 
@@ -30,7 +31,7 @@ public class PersonTests {
     }
 
     @Test
-    public void toStringTest(){
+    public void toStringTest() {
         //Expected Result
         final String expectedResult = "Person{lastname='Sawitzki', firstname='Rainer', height=183}";
 

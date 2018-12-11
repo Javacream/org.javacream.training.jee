@@ -7,13 +7,14 @@ public class Worker extends Person {
     }
 
     private String company;
-    public void work(){
+
+    public void work() {
         System.out.println("working...");
     }
 
     @Override
     public String sayHello() {
-        String personGreeting =  super.sayHello();
+        String personGreeting = super.sayHello();
         personGreeting += ", working at company " + this.company;
         return personGreeting;
     }

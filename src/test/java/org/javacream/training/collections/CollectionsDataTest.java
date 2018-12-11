@@ -9,7 +9,8 @@ import java.util.HashSet;
 
 public class CollectionsDataTest {
 
-    @Test public void testList(){
+    @Test
+    public void testList() {
         ArrayList<Data> names = new ArrayList<Data>();
         Data element1 = new Data("Hugo");
         names.add(element1);
@@ -20,16 +21,17 @@ public class CollectionsDataTest {
         Assert.assertEquals(new Data("Emil"), names.get(names.size() - 1));
         Assert.assertEquals(4, names.size());
         //Iteration: for each ... in ...
-        for (Data name: names){
+        for (Data name : names) {
 
         }
         //Iteration: Klassisches for
-        for (Integer i= 0; i < names.size(); i++ ){
+        for (Integer i = 0; i < names.size(); i++) {
             System.out.println(names.get(i));
         }
     }
 
-    @Test public void testSet(){
+    @Test
+    public void testSet() {
         HashSet<Data> names = new HashSet<Data>();
         names.add(new Data("Hugo"));
         names.add(new Data("42"));
@@ -39,7 +41,7 @@ public class CollectionsDataTest {
         //Assert.assertEquals("Emil", names.get(names.size() - 1));
         Assert.assertEquals(3, names.size());
         //Iteration: for each ... in ...
-        for (Data name: names){
+        for (Data name : names) {
 
         }
         //Iteration: Klassisches for
@@ -48,7 +50,9 @@ public class CollectionsDataTest {
 //        }
 
     }
-    @Test public void testMap(){
+
+    @Test
+    public void testMap() {
         HashMap<Data, String> postalCodes = new HashMap<Data, String>();
         postalCodes.put(new Data("81373"), "München");
         postalCodes.put(new Data("83666"), "Munchen");
@@ -57,7 +61,7 @@ public class CollectionsDataTest {
         Assert.assertEquals(3, postalCodes.size());
         postalCodes.put(new Data("83666"), "München");
         Assert.assertEquals(3, postalCodes.size());
-        for (Data postalCode: postalCodes.keySet()){
+        for (Data postalCode : postalCodes.keySet()) {
             System.out.println("Code: " + postalCode + ":" + postalCodes.get(postalCode));
         }
 

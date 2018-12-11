@@ -1,14 +1,8 @@
 package org.javacream.training.collections;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class CollectionsTestWithMethodReference {

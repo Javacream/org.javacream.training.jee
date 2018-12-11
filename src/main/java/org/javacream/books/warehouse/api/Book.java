@@ -3,18 +3,20 @@ package org.javacream.books.warehouse.api;
 import java.io.Serializable;
 
 public class Book implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String isbn;
+    private String isbn;
 
-	private String title;
+    private String title;
 
-	private double price;
-    private Integer  pages;
+    private double price;
+    private Integer pages;
 
-	private boolean available;
+    private boolean available;
 
-	public Book(){ }
+    public Book() {
+    }
+
     public Book(String isbn, String title, Integer pages, double price, boolean available) {
         this.isbn = isbn;
         this.title = title;
@@ -24,20 +26,20 @@ public class Book implements Serializable {
     }
 
     public String getIsbn() {
-		return isbn;
-	}
+        return isbn;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -54,28 +56,28 @@ public class Book implements Serializable {
     }
 
     public String info() {
-		return (new StringBuffer("BookValue: isbn=").append(isbn).append(
-				", title=").append(title).append(", price=").append(price)
-				.append(
-						", available=").append(available)).toString();
-	}
+        return (new StringBuffer("BookValue: isbn=").append(isbn).append(
+                ", title=").append(title).append(", price=").append(price)
+                .append(
+                        ", available=").append(available)).toString();
+    }
 
 
-	public double getPrice() {
-		return price;
-	}
+    public double getPrice() {
+        return price;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-	public boolean isAvailable() {
-		return available;
-	}
+    public boolean isAvailable() {
+        return available;
+    }
 
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
-	
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
 
 }

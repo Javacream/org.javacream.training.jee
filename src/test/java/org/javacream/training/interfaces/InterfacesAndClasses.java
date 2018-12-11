@@ -3,9 +3,6 @@ package org.javacream.training.interfaces;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class InterfacesAndClasses {
     @Test
     public void testTopLevel() {

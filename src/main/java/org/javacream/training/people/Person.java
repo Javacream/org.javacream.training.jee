@@ -1,6 +1,7 @@
 package org.javacream.training.people;
 
 public class Person {//implicit: extends Object
+
     public String getLastname() {
         return lastname;
     }
@@ -21,13 +22,15 @@ public class Person {//implicit: extends Object
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return 42;
     }
+
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         return true;
     }
+
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
@@ -49,7 +52,7 @@ public class Person {//implicit: extends Object
     private Integer height;
 
 
-    public String sayHello(){
+    public String sayHello() {
         String greeting = "Hello, my name is ";
         String exclamation = "!!";
         String helloMessage = greeting + this.firstname + " " + this.lastname + exclamation;

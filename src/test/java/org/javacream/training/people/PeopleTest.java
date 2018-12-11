@@ -4,7 +4,8 @@ import org.junit.Test;
 
 public class PeopleTest {
 
-    @Test public void testPeople(){
+    @Test
+    public void testPeople() {
         Person p = new Person("Sawitzki", "Rainer", 183);
         Student s = new Student("Einstein", "Albert", 168, "LMU");
         Worker w = new Worker("Schufter", "Hannes", 198, "Integrata");
@@ -17,7 +18,7 @@ public class PeopleTest {
     }
 
 
-    private void greet(Person p){
+    private void greet(Person p) {
         System.out.println("Greeting: " + p.sayHello());
     }
 }
