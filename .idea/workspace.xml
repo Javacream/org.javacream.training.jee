@@ -6,53 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c075616e-5dd1-435a-a088-606b92cbd07f" name="Default Changelist" comment="implement java basics">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/org_javacream_training_jee7.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/impl/BooksFavorites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/javacream/training/people/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/api/BookTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/BooksFavoriteTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsDataTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/InterfacesAndClasses.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/StringTransformerAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/ToUppercaseStringTransformerAlgorithmTopLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/people/PersonTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/.metadata/src/main/webapp/WEB-INF/faces-config.pageflow" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/isbngenerator/api/IsbnGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/isbngenerator/api/IsbnGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/isbngenerator/impl/CounterIsbnGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/isbngenerator/impl/CounterIsbnGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/isbngenerator/impl/RandomIsbnGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/isbngenerator/impl/RandomIsbnGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/warehouse/api/Book.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/warehouse/api/BookException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/BookException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/warehouse/api/BooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/BooksService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/warehouse/impl/MapBooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/impl/MapBooksService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/store/api/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/store/api/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/store/impl/SimpleStoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/store/impl/SimpleStoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/resources/META-INF/beans.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/WEB-INF/faces-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/index.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/layout/footer.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/layout/layout.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/layout/menu.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/layout/news.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/resources/css/common.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/resources/js/demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/test/java/org/javacream/books/warehouse/test/BooksServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/BooksServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/test/java/org/javacream/books/warehouse/test/TestActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/TestActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/test/resources/Readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -337,7 +291,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544513177059" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544513406696" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/org/javacream/training" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -471,7 +425,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544434185829</updated>
-      <workItem from="1544434187653" duration="18927000" />
+      <workItem from="1544434187653" duration="19134000" />
     </task>
     <servers />
   </component>
@@ -508,7 +462,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18927000" />
+    <option name="totallyTimeSpent" value="19134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
@@ -582,6 +536,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/org.javacream.training.jee7" />
+    </ignored-roots>
     <MESSAGE value="implement java basics" />
     <option name="LAST_COMMIT_MESSAGE" value="implement java basics" />
   </component>
