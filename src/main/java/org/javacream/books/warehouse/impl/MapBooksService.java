@@ -1,12 +1,17 @@
 package org.javacream.books.warehouse.impl;
 
 import org.apache.commons.lang3.SerializationUtils;
+import org.javacream.Helper;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.store.api.StoreService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,9 +24,11 @@ import java.util.stream.Collectors;
  * @mailto rainer.sawitzki@javacream.org
  */
 
+@Component
 public class MapBooksService implements BooksService {
-
+    @Autowired private Helper helper;
     public MapBooksService() {
+        System.out.println("Initializing " + this);
         this.books = new HashMap<String, Book>();
     }
 
@@ -33,6 +40,9 @@ public class MapBooksService implements BooksService {
         this.storeService = storeService;
     }
 
+    @PostConstruct public void initBooksService(){
+        helper.dump(this);
+    }
 
     private IsbnGenerator isbnGenerator;
     private Map<String, Book> books;
@@ -53,7 +63,9 @@ public class MapBooksService implements BooksService {
 
     @Override
     public Collection<Book> findBooksByTitle(String titleFilter) {
-        return books.values().stream().filter((book) -> book.getTitle().contains(titleFilter)).collect(Collectors.toList());
+        //(Book book) -> {return book.getTitle().contains(titleFilter);}
+        //book -> book.getTitle().contains(titleFilter)
+        return books.values().stream().filter(book -> book.getTitle().contains(titleFilter)).collect(Collectors.toList());
     }
 
     public String newBook(String title) throws BookException {
