@@ -1,6 +1,6 @@
 package org.javacream.training.people;
 
-public class Person {
+public class Person {//implicit: extends Object
     public String getLastname() {
         return lastname;
     }
