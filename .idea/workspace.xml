@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsTest.java" line="59" mnemonic="7" />
+    <bookmark url="file://$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsTest.java" line="96" mnemonic="1" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c075616e-5dd1-435a-a088-606b92cbd07f" name="Default Changelist" comment="implement java basics">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org_javacream_training_jee7.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/impl/BooksFavorites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/javacream/training/people/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/api/BookTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/BooksFavoriteTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsDataTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/Data.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/InterfacesAndClasses.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/StringTransformerAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/ToUppercaseStringTransformerAlgorithmTopLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/javacream/training/people/PersonTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/.metadata/src/main/webapp/WEB-INF/faces-config.pageflow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/isbngenerator/api/IsbnGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/isbngenerator/api/IsbnGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/isbngenerator/impl/CounterIsbnGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/isbngenerator/impl/CounterIsbnGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/isbngenerator/impl/RandomIsbnGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/isbngenerator/impl/RandomIsbnGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/warehouse/api/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/warehouse/api/BookException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/BookException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/warehouse/api/BooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/BooksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/books/warehouse/impl/MapBooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/impl/MapBooksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/store/api/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/store/api/StoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/java/org/javacream/store/impl/SimpleStoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/javacream/store/impl/SimpleStoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/resources/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/WEB-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/WEB-INF/faces-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/index.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/layout/footer.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/layout/layout.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/layout/menu.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/layout/news.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/resources/css/common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/main/webapp/resources/js/demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/test/java/org/javacream/books/warehouse/test/BooksServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/BooksServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/test/java/org/javacream/books/warehouse/test/TestActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/TestActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/org.javacream.training.jee7/src/test/resources/Readme.txt" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="881795500">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="18" />
+          <entry key="xml" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="18" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="11" />
+          <entry key="java" value="4961" />
+          <entry key="txt" value="25" />
+          <entry key="xml" value="25" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="4961" />
+          <entry key="PLAIN_TEXT" value="36" />
+          <entry key="XML" value="25" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/Book.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+              <folding>
+                <element signature="e#1183#1184#0" expanded="true" />
+                <element signature="e#1240#1241#0" expanded="true" />
+                <element signature="e#1498#1499#0" expanded="true" />
+                <element signature="e#1517#1518#0" expanded="true" />
+                <element signature="e#1556#1557#0" expanded="true" />
+                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1614#1615#0" expanded="true" />
+                <element signature="e#1637#1638#0" expanded="true" />
+                <element signature="e#1685#1686#0" expanded="true" />
+                <element signature="e#1718#1719#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/impl/BooksFavorites.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#199#205#0" expanded="true" />
+                <element signature="e#243#244#0" expanded="true" />
+                <element signature="e#282#283#0" expanded="true" />
+                <element signature="e#318#319#0" expanded="true" />
+                <element signature="e#357#358#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/BooksFavoriteTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="99" column="56" selection-start-line="99" selection-start-column="56" selection-end-line="99" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#211#219#0" expanded="true" />
+                <element signature="e#835#843#0" expanded="true" />
+                <element signature="e#1684#1701#0" expanded="true" />
+                <element signature="e#2336#2364#0" expanded="true" />
+                <element signature="e#2519#2527#0" expanded="true" />
+                <element signature="e#3594#3595#0" expanded="true" />
+                <element signature="e#3652#3653#0" expanded="true" />
+                <element signature="e#3518#3519#0" expanded="true" />
+                <element signature="e#3561#3562#0" expanded="true" />
+                <element signature="e#3560#3561#0" expanded="true" />
+                <element signature="e#3603#3604#0" expanded="true" />
+                <element signature="e#3443#3444#0" expanded="true" />
+                <element signature="e#3487#3488#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/BooksService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/InterfacesAndClasses.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-323">
+              <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#803#804#0" expanded="true" />
+                <element signature="e#855#856#0" expanded="true" />
+                <element signature="e#1429#1430#0" expanded="true" />
+                <element signature="e#1489#1490#0" expanded="true" />
+                <element signature="e#1785#1786#0" expanded="true" />
+                <element signature="e#1845#1846#0" expanded="true" />
+                <element signature="e#607#608#0" expanded="true" />
+                <element signature="e#642#643#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/StringTransformerAlgorithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/ToUppercaseStringTransformerAlgorithmTopLevel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#227#228#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/api/BookTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>compiler</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/org/javacream/training/people/PeopleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/PeopleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/people/PeopleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/people/PersonTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/javacream/training/book/book/Book.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/javacream/training/book/Book.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/people/BookTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/books/warehouse/api/BookTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/api/BookTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsDataTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/Data.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/javacream/training/people/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/impl/BooksFavorites.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/BooksFavoriteTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/Book.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/InterfacesAndClasses.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/ToUppercaseStringTransformerAlgorithmTopLevel.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/StringTransformerAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/InterfacesAndClasses.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/BooksService.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:/Program Files/apache-maven-3.5.4" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1260" />
+    <option name="height" value="944" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="org_javacream_training_jee7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="org_javacream_training_jee7" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544513177059" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/org/javacream/training" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.javacream.training.book" />
+      <recent name="org.javacream.training.people" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.javacream.training.collections" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.CollectionsTest">
+    <configuration name="BooksFavoriteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="org_javacream_training_jee7" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.javacream.books.warehouse.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.javacream.books.warehouse.test" />
+      <option name="MAIN_CLASS_NAME" value="org.javacream.books.warehouse.test.BooksFavoriteTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="org_javacream_training_jee7" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.javacream.training.collections.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.javacream.training.collections" />
+      <option name="MAIN_CLASS_NAME" value="org.javacream.training.collections.CollectionsTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectionsTest.testWorkingWithList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="org_javacream_training_jee7" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.javacream.training.collections.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.javacream.training.collections" />
+      <option name="MAIN_CLASS_NAME" value="org.javacream.training.collections.CollectionsTest" />
+      <option name="METHOD_NAME" value="testWorkingWithList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InterfacesAndClasses" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="org_javacream_training_jee7" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.javacream.training.interfaces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.javacream.training.interfaces" />
+      <option name="MAIN_CLASS_NAME" value="org.javacream.training.interfaces.InterfacesAndClasses" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InterfacesAndClasses.testTopLevel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="org_javacream_training_jee7" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.javacream.training.interfaces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.javacream.training.interfaces" />
+      <option name="MAIN_CLASS_NAME" value="org.javacream.training.interfaces.InterfacesAndClasses" />
+      <option name="METHOD_NAME" value="testTopLevel" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.BooksFavoriteTest" />
+      <item itemvalue="JUnit.InterfacesAndClasses.testTopLevel" />
+      <item itemvalue="JUnit.InterfacesAndClasses" />
+      <item itemvalue="JUnit.CollectionsTest" />
+      <item itemvalue="JUnit.CollectionsTest.testWorkingWithList" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CollectionsTest" />
+        <item itemvalue="JUnit.CollectionsTest.testWorkingWithList" />
+        <item itemvalue="JUnit.InterfacesAndClasses" />
+        <item itemvalue="JUnit.InterfacesAndClasses.testTopLevel" />
+        <item itemvalue="JUnit.BooksFavoriteTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c075616e-5dd1-435a-a088-606b92cbd07f" name="Default Changelist" comment="" />
+      <created>1544434185829</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1544434185829</updated>
+      <workItem from="1544434187653" duration="18927000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="InterfacesAndClasses - 2018.12.10 at 15h 59m 02s.xml">
+      <configuration name="InterfacesAndClasses" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InterfacesAndClasses - 2018.12.10 at 15h 59m 44s.xml">
+      <configuration name="InterfacesAndClasses" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CollectionsTest - 2018.12.10 at 16h 07m 17s.xml">
+      <configuration name="CollectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CollectionsTest - 2018.12.10 at 16h 08m 09s.xml">
+      <configuration name="CollectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CollectionsTest - 2018.12.10 at 16h 08m 48s.xml">
+      <configuration name="CollectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CollectionsTest - 2018.12.10 at 16h 10m 41s.xml">
+      <configuration name="CollectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CollectionsTest - 2018.12.10 at 16h 34m 08s.xml">
+      <configuration name="CollectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CollectionsTest_testWorkingWithList - 2018.12.10 at 16h 34m 44s.xml">
+      <configuration name="CollectionsTest.testWorkingWithList" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CollectionsTest - 2018.12.11 at 08h 18m 09s.xml">
+      <configuration name="CollectionsTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CollectionsTest - 2018.12.11 at 08h 18m 15s.xml">
+      <configuration name="CollectionsTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="18927000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31340873" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32988507" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32988507" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35977012" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.545977" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.31502423" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.32988507" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.32988507" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implement java basics" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement java basics" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsTest.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/training/people/PeopleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/training/book/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/people/PersonTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/impl/MapBooksService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-266">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsDataTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding>
+            <element signature="e#290#296#0" expanded="true" />
+            <element signature="e#907#913#0" expanded="true" />
+            <element signature="e#1572#1586#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/collections/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#120#121#0" expanded="true" />
+            <element signature="e#152#153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/training/people/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding>
+            <element signature="e#94#95#0" expanded="true" />
+            <element signature="e#125#126#0" expanded="true" />
+            <element signature="method#toString#0;class#Person#0" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#683#684#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/api/BookTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/books/warehouse/test/BooksFavoriteTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="e#1183#1184#0" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1517#1518#0" expanded="true" />
+            <element signature="e#1556#1557#0" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1614#1615#0" expanded="true" />
+            <element signature="e#1637#1638#0" expanded="true" />
+            <element signature="e#1685#1686#0" expanded="true" />
+            <element signature="e#1718#1719#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/impl/BooksFavorites.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#199#205#0" expanded="true" />
+            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#357#358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/StringTransformerAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/ToUppercaseStringTransformerAlgorithmTopLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#227#228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/interfaces/InterfacesAndClasses.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+            <element signature="e#1429#1430#0" expanded="true" />
+            <element signature="e#1489#1490#0" expanded="true" />
+            <element signature="e#1785#1786#0" expanded="true" />
+            <element signature="e#1845#1846#0" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javacream/training/collections/CollectionsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="99" column="56" selection-start-line="99" selection-start-column="56" selection-end-line="99" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#211#219#0" expanded="true" />
+            <element signature="e#835#843#0" expanded="true" />
+            <element signature="e#1684#1701#0" expanded="true" />
+            <element signature="e#2336#2364#0" expanded="true" />
+            <element signature="e#2519#2527#0" expanded="true" />
+            <element signature="e#3594#3595#0" expanded="true" />
+            <element signature="e#3652#3653#0" expanded="true" />
+            <element signature="e#3518#3519#0" expanded="true" />
+            <element signature="e#3561#3562#0" expanded="true" />
+            <element signature="e#3560#3561#0" expanded="true" />
+            <element signature="e#3603#3604#0" expanded="true" />
+            <element signature="e#3443#3444#0" expanded="true" />
+            <element signature="e#3487#3488#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/javacream/books/warehouse/api/BooksService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>org_javacream_training_jee7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: junit:junit:4.12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
