@@ -1,7 +1,6 @@
-package org.javacream.books.warehouse.test;
+package org.javacream.books.warehouse.impl;
 
 import org.javacream.books.warehouse.api.Book;
-import org.javacream.books.warehouse.impl.BooksFavorites;
 import org.junit.Test;
 
 public class BooksFavoriteTest {

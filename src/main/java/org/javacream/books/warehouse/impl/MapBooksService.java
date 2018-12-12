@@ -2,20 +2,19 @@ package org.javacream.books.warehouse.impl;
 
 import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.Helper;
-import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGeneratorService;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.store.api.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import javax.annotation.Resource;
+import java.io.Serializable;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -27,47 +26,33 @@ import java.util.stream.Collectors;
 @Component
 public class MapBooksService implements BooksService {
     @Autowired private Helper helper;
-    public MapBooksService() {
+
+    {
         System.out.println("Initializing " + this);
         this.books = new HashMap<String, Book>();
     }
 
-    public MapBooksService(IsbnGenerator isbngenerator,
-                           Map<String, Book> books, StoreService storeService) {
-        super();
-        this.isbnGenerator = isbngenerator;
-        this.books = books;
-        this.storeService = storeService;
-    }
 
     @PostConstruct public void initBooksService(){
         helper.dump(this);
     }
 
-    private IsbnGenerator isbnGenerator;
+    @Autowired @Qualifier(IsbnGeneratorService.Qualifier.SEQUENCE)
+    private IsbnGeneratorService isbnGenerator;
     private Map<String, Book> books;
-    private StoreService storeService;
-
-    {
-        books = new HashMap<String, Book>();
-    }
-
-
-    public void setStoreService(StoreService storeService) {
-        this.storeService = storeService;
-    }
-
-    public void setIsbnGenerator(IsbnGenerator isbnGenerator) {
-        this.isbnGenerator = isbnGenerator;
-    }
+    @Autowired private StoreService storeService;
 
     @Override
     public Collection<Book> findBooksByTitle(String titleFilter) {
         //(Book book) -> {return book.getTitle().contains(titleFilter);}
         //book -> book.getTitle().contains(titleFilter)
-        return books.values().stream().filter(book -> book.getTitle().contains(titleFilter)).collect(Collectors.toList());
+        return books.values().stream().filter(book -> book.getTitle().contains(titleFilter)).map(book -> setAvailability(book)).collect(Collectors.toList());
     }
 
+    private Book setAvailability(Book book){
+        book.setAvailable((storeService.getStock("books", book.getIsbn()) > 0));
+        return book;
+    }
     public String newBook(String title) throws BookException {
             String isbn = isbnGenerator.next();
             Book book = new Book();
@@ -77,7 +62,7 @@ public class MapBooksService implements BooksService {
             return isbn;
     }
 
-    public IsbnGenerator getIsbnGenerator() {
+    public IsbnGeneratorService getIsbnGenerator() {
         return isbnGenerator;
     }
 
@@ -107,11 +92,8 @@ public class MapBooksService implements BooksService {
 
 
     public Collection<Book> findAllBooks() {
-        return SerializationUtils.clone(new ArrayList<Book>(books.values()));
-    }
-
-    public void setBooks(Map<String, Book> books) {
-        this.books = books;
+        List<Book> result = books.values().stream().map(book -> setAvailability(book)).collect(Collectors.toList());
+        return SerializationUtils.clone(new ArrayList<Book>(result));
     }
 
 }

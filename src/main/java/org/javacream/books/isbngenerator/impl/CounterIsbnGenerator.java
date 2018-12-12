@@ -1,19 +1,19 @@
 package org.javacream.books.isbngenerator.impl;
 
-import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGeneratorService;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-public class CounterIsbnGenerator implements IsbnGenerator {
+@Component("cIG")
+@Qualifier(IsbnGeneratorService.Qualifier.SEQUENCE)
 
+public class CounterIsbnGenerator implements IsbnGeneratorService {
+
+    @Value("${isbngenerator.prefix}")
     private String prefix;
+    @Value("${isbngenerator.country}")
     private String countryCode;
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String suffix) {
-        this.countryCode = suffix;
-    }
 
     private int counter;
 
@@ -21,11 +21,4 @@ public class CounterIsbnGenerator implements IsbnGenerator {
         return prefix + counter++ + countryCode;
     }
 
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
 }
