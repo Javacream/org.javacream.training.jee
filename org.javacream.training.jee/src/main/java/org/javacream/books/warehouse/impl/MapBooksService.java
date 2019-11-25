@@ -5,8 +5,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+
 import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.impl.IsbnGeneratorStrategy;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
@@ -18,7 +22,7 @@ import org.javacream.store.api.StoreService;
  * @mailto rainer.sawitzki@javacream.org
  * 
  */
-
+@ApplicationScoped
 public class MapBooksService implements BooksService {
 
 	public MapBooksService(){
@@ -33,8 +37,12 @@ public class MapBooksService implements BooksService {
 	}
 
 
+	@Inject @IsbnGeneratorStrategy(strategy="sequence")
 	private IsbnGenerator isbnGenerator;
+	
 	private Map<String, Book> books;
+	
+	@Inject
 	private StoreService storeService;
 	
 	{

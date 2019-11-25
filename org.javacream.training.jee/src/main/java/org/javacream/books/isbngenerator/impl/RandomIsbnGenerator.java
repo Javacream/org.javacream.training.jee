@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 
+@IsbnGeneratorStrategy(strategy="random")
 public class RandomIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;

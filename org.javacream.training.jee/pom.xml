@@ -45,7 +45,7 @@
 						<configuration>
 							<tasks>
 								<copy file="${project.build.directory}/jee.war"
-									todir="your-wildfly-installation/wildfly-13.0.0.Final/standalone/deployments" />
+									todir="/home/rainer/tools/wildfly-13.0.0.Final/standalone/deployments" />
 							</tasks>
 						</configuration>
 						<goals>

@@ -2,6 +2,7 @@ package org.javacream.books.isbngenerator.impl;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 
+@IsbnGeneratorStrategy(strategy="sequence")
 public class CounterIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
