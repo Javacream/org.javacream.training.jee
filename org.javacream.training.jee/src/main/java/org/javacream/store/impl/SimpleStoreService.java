@@ -3,8 +3,10 @@ package org.javacream.store.impl;
 import javax.enterprise.context.RequestScoped;
 
 import org.javacream.store.api.StoreService;
+import org.javacream.util.inject.Business;
 
 @RequestScoped
+@Business
 public class SimpleStoreService implements StoreService {
 	private int stock = 42;
 	
