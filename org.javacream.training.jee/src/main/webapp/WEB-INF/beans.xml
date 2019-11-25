@@ -5,4 +5,8 @@
 	<class>org.javacream.books.isbngenerator.impl.CounterIsbnGenerator</class>
 	</alternatives>
  -->
+ 
+ <interceptors>
+ <class>org.javacream.util.aspect.TracingAspect</class>
+ </interceptors>
 </beans>  

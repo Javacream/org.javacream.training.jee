@@ -15,6 +15,7 @@ import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.store.api.StoreService;
+import org.javacream.util.aspect.Trace;
 
 /**
  * @author Dr. Rainer Sawitzki
@@ -58,6 +59,7 @@ public class MapBooksService implements BooksService {
 		this.isbnGenerator = isbnGenerator;
 	}
 
+	@Trace
 	public String newBook(String title) throws BookException {
 		String isbn = isbnGenerator.next();
 		Book book = new Book();
