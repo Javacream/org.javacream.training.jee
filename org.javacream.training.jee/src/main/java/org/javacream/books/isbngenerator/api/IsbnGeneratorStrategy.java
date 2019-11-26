@@ -1,4 +1,4 @@
-package org.javacream.books.isbngenerator.impl;
+package org.javacream.books.isbngenerator.api;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

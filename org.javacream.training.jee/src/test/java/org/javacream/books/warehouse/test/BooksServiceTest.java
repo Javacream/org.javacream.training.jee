@@ -3,6 +3,7 @@ package org.javacream.books.warehouse.test;
 import org.javacream.books.isbngenerator.impl.RandomIsbnGenerator;
 import org.javacream.books.warehouse.impl.MapBooksService;
 import org.javacream.store.impl.SimpleStoreService;
+import org.javacream.util.cdi.test.MockEventEmitter;
 import org.junit.Test;
 
 public class BooksServiceTest {
@@ -14,8 +15,10 @@ public class BooksServiceTest {
 		randomIsbnGenerator.setCountryCode("-de");
 		mapBooksService.setIsbnGenerator(randomIsbnGenerator);
 		mapBooksService.setStoreService(new SimpleStoreService());
+		mapBooksService.setBookCreatedEventEmitter(new MockEventEmitter<>());
+		mapBooksService.setBookUpdatedEventEmitter(new MockEventEmitter<>());
+		mapBooksService.setBookDeletedEventEmitter(new MockEventEmitter<>());
 		randomIsbnGenerator.setPrefix("TEST:");
-		
 		TestActor.doTest(mapBooksService);
 		
 	

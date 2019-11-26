@@ -4,7 +4,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.impl.IsbnGeneratorStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGeneratorStrategy;
 import org.javacream.books.warehouse.application.BooksApplication;
 import org.javacream.store.api.StoreService;
 

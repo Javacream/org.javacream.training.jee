@@ -3,6 +3,7 @@ package org.javacream.books.isbngenerator.impl;
 import java.util.Random;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGeneratorStrategy;
 
 @IsbnGeneratorStrategy(strategy="random")
 public class RandomIsbnGenerator implements IsbnGenerator {
