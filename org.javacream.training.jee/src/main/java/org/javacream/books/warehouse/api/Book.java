@@ -21,6 +21,8 @@ public class Book implements Serializable {
 
 	private boolean available;
 
+	private byte[] content;
+	
 	public String getIsbn() {
 		return isbn;
 	}

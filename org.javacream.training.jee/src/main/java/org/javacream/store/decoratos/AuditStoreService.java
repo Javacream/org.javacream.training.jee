@@ -13,9 +13,9 @@ public class AuditStoreService implements StoreService{
 
 	public int getStock(String category, String item) {
 		System.out.println("called getStock at " + new Date());
-		return simpleStoreService.getStock(category, item);
+		return storeService.getStock(category, item);
 	}
 
 	@Inject @Business
-	private StoreService simpleStoreService;
+	private StoreService storeService;
 }

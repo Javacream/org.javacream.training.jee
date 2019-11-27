@@ -12,7 +12,7 @@ import org.javacream.store.api.StoreService;
 
 @ApplicationScoped
 @Path("store")
-public class StoreWebService {
+public class StoreWebService {//implements OpenAPI-Dokument
 	
 	@Inject
 	private StoreService storeService;
