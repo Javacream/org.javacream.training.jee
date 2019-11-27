@@ -14,7 +14,7 @@ import org.javacream.books.isbngenerator.api.IsbnGeneratorStrategy;
 @Path("isbn")
 public class IsbnGeneratorWebService {
 
-	@Inject @IsbnGeneratorStrategy(strategy="random")
+	@Inject @IsbnGeneratorStrategy(strategy="sequence")
 	private IsbnGenerator isbnGenerator;
 
 
