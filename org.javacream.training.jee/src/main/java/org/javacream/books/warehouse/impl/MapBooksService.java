@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
@@ -29,48 +30,62 @@ import org.javacream.util.aspect.Trace;
 @ApplicationScoped
 public class MapBooksService implements BooksService {
 
-	public MapBooksService(){
+	public MapBooksService() {
 		this.books = new HashMap<String, Book>();
 	}
-	public MapBooksService(IsbnGenerator isbngenerator,
-			Map<String, Book> books, StoreService storeService) {
+
+	public MapBooksService(IsbnGenerator isbngenerator, Map<String, Book> books, StoreService storeService) {
 		super();
 		this.isbnGenerator = isbngenerator;
 		this.books = books;
 		this.storeService = storeService;
 	}
 
+	@PostConstruct
+	public void init() {
+		for (int i = 0; i < 10; i++) {
+			Book book = new Book();
+			book.setIsbn("ISBN" + i);
+			book.setTitle("TITLE" + i);
+			books.put(book.getIsbn(), book);
+		}
+	}
+
 	public void setBookCreatedEventEmitter(Event<BookChanged> bookCreatedEventEmitter) {
 		this.bookCreatedEventEmitter = bookCreatedEventEmitter;
 	}
+
 	public void setBookDeletedEventEmitter(Event<BookChanged> bookDeletedEventEmitter) {
 		this.bookDeletedEventEmitter = bookDeletedEventEmitter;
 	}
+
 	public void setBookUpdatedEventEmitter(Event<BookChanged> bookUpdatedEventEmitter) {
 		this.bookUpdatedEventEmitter = bookUpdatedEventEmitter;
 	}
 
-	@Inject @BookChanged.Type(BookChangeType.CREATED)
+	@Inject
+	@BookChanged.Type(BookChangeType.CREATED)
 	private Event<BookChanged> bookCreatedEventEmitter;
-	@Inject @BookChanged.Type(BookChangeType.DELETED)
+	@Inject
+	@BookChanged.Type(BookChangeType.DELETED)
 	private Event<BookChanged> bookDeletedEventEmitter;
-	@Inject @BookChanged.Type(BookChangeType.UPDATED)
+	@Inject
+	@BookChanged.Type(BookChangeType.UPDATED)
 	private Event<BookChanged> bookUpdatedEventEmitter;
 
-
-	@Inject @IsbnGeneratorStrategy(strategy="sequence")
+	@Inject
+	@IsbnGeneratorStrategy(strategy = "sequence")
 	private IsbnGenerator isbnGenerator;
-	
+
 	private Map<String, Book> books;
-	
+
 	@Inject
 	private StoreService storeService;
-	
+
 	{
 		books = new HashMap<String, Book>();
 	}
 
-	
 	public void setStoreService(StoreService storeService) {
 		this.storeService = storeService;
 	}
@@ -93,14 +108,14 @@ public class MapBooksService implements BooksService {
 	public IsbnGenerator getIsbnGenerator() {
 		return isbnGenerator;
 	}
+
 	public Book findBookByIsbn(String isbn) throws BookException {
 		Book result = (Book) books.get(isbn);
 		if (result == null) {
-			throw new BookException(BookException.BookExceptionType.NOT_FOUND,
-					isbn);
+			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
 		result.setAvailable(storeService.getStock("books", isbn) > 0);
-		
+
 		return SerializationUtils.clone(result);
 	}
 
@@ -113,39 +128,17 @@ public class MapBooksService implements BooksService {
 	public void deleteBookByIsbn(String isbn) throws BookException {
 		Object result = books.remove(isbn);
 		if (result == null) {
-			throw new BookException(
-					BookException.BookExceptionType.NOT_DELETED, isbn);
+			throw new BookException(BookException.BookExceptionType.NOT_DELETED, isbn);
 		}
 		bookDeletedEventEmitter.fire(new BookChanged(isbn));
 	}
 
-
 	public Collection<Book> findAllBooks() {
 		return SerializationUtils.clone(new ArrayList<Book>(books.values()));
 	}
+
 	public void setBooks(Map<String, Book> books) {
 		this.books = books;
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

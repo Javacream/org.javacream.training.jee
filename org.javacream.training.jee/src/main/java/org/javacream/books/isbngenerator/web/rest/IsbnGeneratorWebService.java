@@ -1,0 +1,26 @@
+package org.javacream.books.isbngenerator.web.rest;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGeneratorStrategy;
+
+@ApplicationScoped
+@Path("isbn")
+public class IsbnGeneratorWebService {
+
+	@Inject @IsbnGeneratorStrategy(strategy="random")
+	private IsbnGenerator isbnGenerator;
+
+
+	@POST
+	@Produces(MediaType.TEXT_PLAIN)
+	public String next() {
+		return isbnGenerator.next();
+	}
+}
