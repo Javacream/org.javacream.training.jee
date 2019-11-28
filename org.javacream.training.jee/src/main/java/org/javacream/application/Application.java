@@ -24,6 +24,7 @@ public class Application {
 	public String run() {
 		System.out.println(isbnGenerator.next());
 		booksApplication.doTest();
+		booksApplication.doTestPart2();
 		return "StoreRequest: " + storeService.getStock("category", "item");
 	}
 }

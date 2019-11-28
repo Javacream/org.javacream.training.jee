@@ -1,40 +1,47 @@
 package org.javacream.books.warehouse.application;
 
-
-import java.util.Collection;
-
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.javacream.books.warehouse.api.Book;
-import org.javacream.books.warehouse.api.BookException;
-import org.javacream.books.warehouse.api.BooksService;
 
+@ApplicationScoped
+@Transactional(Transactional.TxType.REQUIRES_NEW)
 public class BooksApplication {
-
-	@Inject private BooksService booksService;
+	@Inject private BooksDemo booksDemo;
+	@PersistenceContext private EntityManager entityManager; 
 	public void doTest() {
-		try {
-			Collection<Book> books = booksService.findAllBooks();
-			String j2eeTitle = "Spring";
-			String isbn = booksService.newBook(j2eeTitle);
-			books = booksService.findAllBooks();
-			System.out.println(books);
-			try {
-				booksService.findBookByIsbn("ISBN-3");
-			} catch (BookException e) {
-				// OK
-			}
-			booksService.deleteBookByIsbn(isbn);
-			try {
-				booksService.deleteBookByIsbn(isbn);
-			} catch (BookException e) {
-				// OK
-			}
-
-		} catch (BookException bookException) {
-			bookException.printStackTrace();
-		}
-
+		Book book = new Book();
+		book.setIsbn("ISBN1");
+		book.setTitle("TITLE1");
+		book.setPrice(19.99);
+		entityManager.persist(book);
+		book.setPrice(9.99);
+		Book searched = entityManager.find(Book.class, "ISBN1");
+		searched.setTitle("C H A N G E D");
+		System.out.println(searched.getPrice());
+		System.out.println(book.getTitle());
+		System.out.println("Identity: " + (book == searched));
+		
+		Book searched2 = entityManager.createQuery("select b from Book as b", Book.class).getResultList().get(0);
+		System.out.println("Identity: " + (book == searched2));
+	
+		entityManager.flush();//Absetzen der Statements
+		entityManager.clear();//Alle Objekte sind ab jetzt detached
+		book.setTitle("CHANGED AGAIN");
+		Book attached = entityManager.merge(book);//book bleibt detached
+		book.setPrice(6.66);
+		attached.setPrice(66.66);
+	}
+	public void doTestPart2() {
+		Book attached = entityManager.createQuery("select b from Book as b", Book.class).getResultList().get(0);
+		booksDemo.demo();
+		System.out.println(attached.getTitle());
+		attached.setPrice(88.88);
+		
 	}
 
 }

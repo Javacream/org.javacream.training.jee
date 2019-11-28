@@ -22,6 +22,7 @@ public class DatabaseUtility {
 		query = entityManager.createNativeQuery("insert into messages values ('Hello')");
 		query.executeUpdate();
 		query = entityManager.createNativeQuery("select message from messages");
+		@SuppressWarnings("unchecked")
 		List<String> messages = query.getResultList();
 		messages.forEach(System.out::println);
 		query = entityManager.createNativeQuery("select message from messages where message like :filter");
