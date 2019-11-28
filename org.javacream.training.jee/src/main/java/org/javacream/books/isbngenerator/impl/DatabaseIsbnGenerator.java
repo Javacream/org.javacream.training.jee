@@ -42,11 +42,7 @@ public class DatabaseIsbnGenerator implements IsbnGenerator {
 		Query query = entityManager.createNativeQuery("update keys set key = :key");
 		query.setParameter("key", actualKey);
 		query.executeUpdate();
-		try {
-			databaseLogger.log("created new key at " + new Date());
-		} catch (Exception e) {
-			// OK...
-		}
+		databaseLogger.log("created new key at " + new Date());
 		return prefix + actualKey + countryCode;
 	}
 
