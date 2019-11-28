@@ -1,7 +1,5 @@
 package org.javacream.store.impl;
 
-import java.math.BigDecimal;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.persistence.EntityManager;
@@ -11,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.javacream.books.warehouse.api.BooksService.BookEvent;
 import org.javacream.books.warehouse.api.BooksService.BookEventType;
+import org.javacream.store.api.StoreEntry;
 import org.javacream.store.api.StoreService;
 import org.javacream.util.qualifier.Business;
 import org.javacream.util.qualifier.EventQualifier;
@@ -25,12 +24,12 @@ public class DatabaseStoreService implements StoreService {
 	
 	public int getStock(String category, String id) {
 		Query query = entityManager
-				.createNativeQuery("select stock from stock where category = :category and item = :item");
+				.createNativeQuery("select item, category , stock from stock where category = :category and item = :item", StoreEntry.class);
 		query.setParameter("category", category);
 		query.setParameter("item", id);
 		try {
-			BigDecimal result = (BigDecimal) query.getSingleResult();
-			return result.intValue();
+			StoreEntry result = (StoreEntry) query.getSingleResult();
+			return result.getStock();
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 			return 0;

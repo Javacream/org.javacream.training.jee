@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
+import javax.enterprise.inject.Vetoed;
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.SerializationUtils;
@@ -27,6 +28,7 @@ import org.javacream.util.qualifier.EventQualifier;
  * 
  */
 @ApplicationScoped
+@Vetoed
 public class MapBooksService implements BooksService {
 
 	public MapBooksService() {
