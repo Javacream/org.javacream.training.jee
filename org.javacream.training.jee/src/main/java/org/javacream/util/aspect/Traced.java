@@ -1,5 +1,6 @@
 package org.javacream.util.aspect;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -10,7 +11,7 @@ import javax.interceptor.InterceptorBinding;
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @InterceptorBinding
-
-public @interface Trace {
+@Documented
+public @interface Traced {
 
 }

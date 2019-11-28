@@ -1,7 +1,7 @@
 package org.javacream.books.isbngenerator.impl;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.util.aspect.Trace;
+import org.javacream.util.aspect.Traced;
 
 public class CounterIsbnGenerator implements IsbnGenerator {
 
@@ -16,7 +16,7 @@ public class CounterIsbnGenerator implements IsbnGenerator {
 	}
 	private int counter;
 	
-	@Trace
+	@Traced
 	public String next(){
 		return prefix + counter++ + countryCode;
 	}

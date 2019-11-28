@@ -6,7 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.javacream.store.api.StoreService;
-import org.javacream.util.inject.Business;
+import org.javacream.util.qualifier.Business;
 
 @ApplicationScoped
 public class AuditStoreService implements StoreService{

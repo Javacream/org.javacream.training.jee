@@ -1,5 +1,6 @@
-package org.javacream.util.inject;
+package org.javacream.util.qualifier;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -7,10 +8,11 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
-@Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD})
+
+@Target({ ElementType.TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-
-public @interface Business {
-
+@Documented
+public @interface EventQualifier {
+		String value();
 }

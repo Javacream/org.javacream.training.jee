@@ -4,7 +4,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.IsbnGeneratorStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.IsbnGeneratorQualifier;
 import org.javacream.books.warehouse.application.BooksApplication;
 import org.javacream.store.api.StoreService;
 
@@ -13,9 +13,9 @@ public class Application {
 	@Inject
 	private StoreService storeService;
 	
-	@Inject @IsbnGeneratorStrategy(strategy="sequence")
+	@Inject @IsbnGeneratorQualifier(IsbnGenerator.IsbnGeneratorStrategy.SEQUENCE)
 	private IsbnGenerator isbnGenerator;
-	@Inject @IsbnGeneratorStrategy(strategy="random")
+	@Inject @IsbnGeneratorQualifier(IsbnGenerator.IsbnGeneratorStrategy.RANDOM)
 	private IsbnGenerator randomIsbnGenerator;
 	
 	@Inject 

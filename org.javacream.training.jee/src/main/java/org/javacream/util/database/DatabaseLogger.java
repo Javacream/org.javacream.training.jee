@@ -24,7 +24,7 @@ public class DatabaseLogger {
 		Query query =  entityManager.createNativeQuery("insert into messages values (:message)");
 		query.setParameter("message", message);
 		query.executeUpdate();
-		boolean shouldRollback = true;
+		boolean shouldRollback = false;
 		if (shouldRollback) throw new RuntimeException("TEST ROLLBACK");
 
 	}

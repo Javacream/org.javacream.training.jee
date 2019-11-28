@@ -8,15 +8,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.IsbnGeneratorStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.IsbnGeneratorQualifier;
 
 @ApplicationScoped
 @Path("isbn")
 public class IsbnGeneratorWebService {
 
-	@Inject @IsbnGeneratorStrategy(strategy="sequence")
+	@Inject
+	@IsbnGeneratorQualifier(IsbnGenerator.IsbnGeneratorStrategy.SEQUENCE)
 	private IsbnGenerator isbnGenerator;
-
 
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)

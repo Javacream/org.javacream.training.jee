@@ -5,7 +5,7 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
 @Interceptor
-@Trace
+@Traced
 public class TracingAspect {
 
 	@AroundInvoke

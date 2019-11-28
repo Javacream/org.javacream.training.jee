@@ -2,6 +2,7 @@ package org.javacream.books.isbngenerator.impl;
 
 import java.util.Date;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,11 +10,12 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.IsbnGeneratorStrategy;
-import org.javacream.util.aspect.Trace;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.IsbnGeneratorQualifier;
+import org.javacream.util.aspect.Traced;
 import org.javacream.util.database.DatabaseLogger;
 
-@IsbnGeneratorStrategy(strategy = "sequence")
+@IsbnGeneratorQualifier(IsbnGenerator.IsbnGeneratorStrategy.SEQUENCE)
+@ApplicationScoped
 public class DatabaseIsbnGenerator implements IsbnGenerator {
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -32,7 +34,7 @@ public class DatabaseIsbnGenerator implements IsbnGenerator {
 		this.countryCode = suffix;
 	}
 
-	@Trace
+	@Traced
 	@Transactional(Transactional.TxType.REQUIRED)
 	public String next() {
 		int actualKey = (int) entityManager.createNativeQuery("select key from keys").getSingleResult();

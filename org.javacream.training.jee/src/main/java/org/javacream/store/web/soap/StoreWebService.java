@@ -11,7 +11,7 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import org.javacream.store.api.StoreService;
-import org.javacream.util.inject.Business;
+import org.javacream.util.qualifier.Business;
 
 @ApplicationScoped
 @WebService(targetNamespace="http://javacream.org", serviceName="StoreService")

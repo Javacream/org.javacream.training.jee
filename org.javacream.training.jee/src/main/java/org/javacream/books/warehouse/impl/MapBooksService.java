@@ -12,14 +12,13 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.IsbnGeneratorStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.IsbnGeneratorQualifier;
 import org.javacream.books.warehouse.api.Book;
-import org.javacream.books.warehouse.api.BookChanged;
-import org.javacream.books.warehouse.api.BookChanged.BookChangeType;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.store.api.StoreService;
-import org.javacream.util.aspect.Trace;
+import org.javacream.util.aspect.Traced;
+import org.javacream.util.qualifier.EventQualifier;
 
 /**
  * @author Dr. Rainer Sawitzki
@@ -51,30 +50,30 @@ public class MapBooksService implements BooksService {
 		}
 	}
 
-	public void setBookCreatedEventEmitter(Event<BookChanged> bookCreatedEventEmitter) {
+	public void setBookCreatedEventEmitter(Event<BookEvent> bookCreatedEventEmitter) {
 		this.bookCreatedEventEmitter = bookCreatedEventEmitter;
 	}
 
-	public void setBookDeletedEventEmitter(Event<BookChanged> bookDeletedEventEmitter) {
+	public void setBookDeletedEventEmitter(Event<BookEvent> bookDeletedEventEmitter) {
 		this.bookDeletedEventEmitter = bookDeletedEventEmitter;
 	}
 
-	public void setBookUpdatedEventEmitter(Event<BookChanged> bookUpdatedEventEmitter) {
+	public void setBookUpdatedEventEmitter(Event<BookEvent> bookUpdatedEventEmitter) {
 		this.bookUpdatedEventEmitter = bookUpdatedEventEmitter;
 	}
 
 	@Inject
-	@BookChanged.Type(BookChangeType.CREATED)
-	private Event<BookChanged> bookCreatedEventEmitter;
+	@EventQualifier(BookEventType.CREATED)
+	private Event<BookEvent> bookCreatedEventEmitter;
 	@Inject
-	@BookChanged.Type(BookChangeType.DELETED)
-	private Event<BookChanged> bookDeletedEventEmitter;
+	@EventQualifier(BookEventType.DELETED)
+	private Event<BookEvent> bookDeletedEventEmitter;
 	@Inject
-	@BookChanged.Type(BookChangeType.UPDATED)
-	private Event<BookChanged> bookUpdatedEventEmitter;
+	@EventQualifier(BookEventType.UPDATED)
+	private Event<BookEvent> bookUpdatedEventEmitter;
 
 	@Inject
-	@IsbnGeneratorStrategy(strategy = "sequence")
+	@IsbnGeneratorQualifier(IsbnGenerator.IsbnGeneratorStrategy.SEQUENCE)
 	private IsbnGenerator isbnGenerator;
 
 	private Map<String, Book> books;
@@ -94,14 +93,14 @@ public class MapBooksService implements BooksService {
 		this.isbnGenerator = isbnGenerator;
 	}
 
-	@Trace
+	@Traced
 	public String newBook(String title) throws BookException {
 		String isbn = isbnGenerator.next();
 		Book book = new Book();
 		book.setIsbn(isbn);
 		book.setTitle(title);
 		books.put(isbn, book);
-		bookCreatedEventEmitter.fire(new BookChanged(isbn));
+		bookCreatedEventEmitter.fire(new BookEvent(isbn));
 		return isbn;
 	}
 
@@ -121,7 +120,7 @@ public class MapBooksService implements BooksService {
 
 	public Book updateBook(Book bookValue) throws BookException {
 		books.put(bookValue.getIsbn(), SerializationUtils.clone(bookValue));
-		bookUpdatedEventEmitter.fire(new BookChanged(bookValue.getIsbn()));
+		bookUpdatedEventEmitter.fire(new BookEvent(bookValue.getIsbn()));
 		return bookValue;
 	}
 
@@ -130,7 +129,7 @@ public class MapBooksService implements BooksService {
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_DELETED, isbn);
 		}
-		bookDeletedEventEmitter.fire(new BookChanged(isbn));
+		bookDeletedEventEmitter.fire(new BookEvent(isbn));
 	}
 
 	public Collection<Book> findAllBooks() {

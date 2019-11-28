@@ -1,5 +1,6 @@
-package org.javacream.books.isbngenerator.api;
+package org.javacream.util.stereotype;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -7,10 +8,10 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
-@Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD})
+@Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-public @interface IsbnGeneratorStrategy {
+@Documented
+public @interface EventObserver {
 
-	String strategy();
 }

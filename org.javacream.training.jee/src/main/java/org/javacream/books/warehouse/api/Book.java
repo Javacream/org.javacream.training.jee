@@ -23,6 +23,14 @@ public class Book implements Serializable {
 
 	private byte[] content;
 	
+	public byte[] getContent() {
+		return content;
+	}
+
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+
 	public String getIsbn() {
 		return isbn;
 	}
