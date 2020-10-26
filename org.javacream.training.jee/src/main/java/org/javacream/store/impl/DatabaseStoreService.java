@@ -24,11 +24,11 @@ public class DatabaseStoreService implements StoreService {
 
 	public int getStock(String category, String id) {
 		Query query = entityManager
-				.createNativeQuery("select stock from stock where category = :category and item = :item");
-		query.setParameter("category", category);
-		query.setParameter("item", id);
+				.createNativeQuery("select stock from stock where category = ? and item = ?");
+		query.setParameter(1, category);
+		query.setParameter(2, id);
 		try {
-			BigDecimal result = (BigDecimal) query.getSingleResult();
+			Integer result = (Integer) query.getSingleResult();
 			return result.intValue();
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());

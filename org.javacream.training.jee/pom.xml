@@ -45,7 +45,7 @@
 						<configuration>
 							<tasks>
 								<copy file="${project.build.directory}/jee.war"
-									todir="/home/rainer/tools/wildfly-13.0.0.Final/standalone/deployments" />
+									todir="/home/rainer/Downloads/apache-tomee-8.0.4-plume/apache-tomee-plume-8.0.4/webapps" />
 							</tasks>
 						</configuration>
 						<goals>

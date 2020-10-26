@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 @ApplicationScoped
 public class CdiHelper {
 
-	@Resource(mappedName="java:jboss/datasources/ExampleDS")
+	@Resource(mappedName="ExampleDS")
 	private DataSource ds;
 	
 	@ApplicationScoped @Produces public DataSource dataSource() {

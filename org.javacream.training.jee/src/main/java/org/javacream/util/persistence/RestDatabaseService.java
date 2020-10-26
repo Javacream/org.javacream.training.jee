@@ -1,4 +1,4 @@
-package org.javacream.demo.persistence;
+package org.javacream.util.persistence;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -19,4 +19,13 @@ public class RestDatabaseService {
 		dbUtility.executeTransactionScript();
 		return "OK";
 	}
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("init")
+	public String initTables() {
+		dbUtility.initTables();
+		return "OK";
+	}	
+
 }
