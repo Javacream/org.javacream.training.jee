@@ -34,8 +34,10 @@ public class DatabaseUtility {
 
 	@Transactional(Transactional.TxType.REQUIRED)
 	public void initTables() {
+		entityManager.createNativeQuery("drop table messages if exists").executeUpdate();
 		entityManager.createNativeQuery("drop table keys if exists").executeUpdate();
 		entityManager.createNativeQuery("drop table store if exists").executeUpdate();
+		entityManager.createNativeQuery("create table messages (message varchar(256))").executeUpdate();
 		entityManager.createNativeQuery("create table keys (key integer)").executeUpdate();
 		entityManager.createNativeQuery("insert into keys values(1)").executeUpdate();
 		entityManager.createNativeQuery(

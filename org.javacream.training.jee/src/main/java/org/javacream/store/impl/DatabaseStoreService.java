@@ -1,7 +1,5 @@
 package org.javacream.store.impl;
 
-import java.math.BigDecimal;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.persistence.EntityManager;
@@ -24,7 +22,7 @@ public class DatabaseStoreService implements StoreService {
 
 	public int getStock(String category, String id) {
 		Query query = entityManager
-				.createNativeQuery("select stock from stock where category = ? and item = ?");
+				.createNativeQuery("select stock from store where category = ? and item = ?");
 		query.setParameter(1, category);
 		query.setParameter(2, id);
 		try {

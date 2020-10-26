@@ -45,7 +45,7 @@
 						<configuration>
 							<tasks>
 								<copy file="${project.build.directory}/jee.war"
-									todir="/home/rainer/Downloads/apache-tomee-8.0.4-plume/apache-tomee-plume-8.0.4/webapps" />
+									todir="C:/Users/Rainer Sawitzki/Downloads/apache-tomee-plume-8.0.4/webapps" />
 							</tasks>
 						</configuration>
 						<goals>
