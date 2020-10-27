@@ -6,7 +6,7 @@
 
 * Beispiele
   * https://github.com/Javacream/org.javacream.training.jee
-    *  Branch gdv_26.10.2020
+    *  Branch gdv_26.10.2020 und gdv_26.10.2020_tomee
     
 * Digitales Flipchart
   * https://docs.google.com/presentation/d/1bvgvkwhIhAnTiTcx2aQoX49bKn_s4s3vdqbU7m_y-nw/edit?usp=sharing
