@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_4_0.xsd"
+	   bean-discovery-mode="all">
+	<alternatives>
+		<stereotype>org.javacream.util.Dev</stereotype>
+	</alternatives>
+	<decorators>
+		<class>org.javacream.books.isbngenerator.impl.decorators.AuditIsbnGenerator</class>
+		<class>org.javacream.books.warehouse.impl.decorators.DeepCopyingBooksService</class>
+	</decorators>
+	<interceptors>
+		<class>org.javacream.util.aspect.TracingInterceptor</class>
+		<class>org.javacream.util.aspect.MonitoringInterceptor</class>
+	</interceptors>
+</beans>  
