@@ -1,7 +1,10 @@
 package org.javacream.store.impl;
 
+import javax.enterprise.context.ApplicationScoped;
+
 import org.javacream.store.api.StoreService;
 
+@ApplicationScoped
 public class SimpleStoreService implements StoreService {
 	private int stock;
 	

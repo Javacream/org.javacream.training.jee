@@ -15,7 +15,8 @@ import org.javacream.books.isbngenerator.impl.CounterIsbnGenerator;
 @ApplicationScoped
 public class IsbnGeneratorRestService {
 
-	@Inject private CounterIsbnGenerator isbnGenerator;
+	@Inject 
+	private CounterIsbnGenerator isbnGenerator;
 
 //	private IsbnGeneratorRestService()
 	{
@@ -36,6 +37,7 @@ public class IsbnGeneratorRestService {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String retrieveNextIsbn() {
+		System.out.println(isbnGenerator.getClass().getName());
 		return isbnGenerator.next();
 		
 	}
