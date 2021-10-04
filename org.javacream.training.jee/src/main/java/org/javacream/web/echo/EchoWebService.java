@@ -11,6 +11,13 @@ public class EchoWebService {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String ping() {
+		System.out.println("received ping, instance=" + this +", executor=" + Thread.currentThread());
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "pong";
 	}
 }
