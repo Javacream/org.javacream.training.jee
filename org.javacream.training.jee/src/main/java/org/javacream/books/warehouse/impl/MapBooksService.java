@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.enterprise.inject.Vetoed;
+
 import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.warehouse.api.Book;
@@ -19,6 +21,7 @@ import org.javacream.store.api.StoreService;
  * 
  */
 
+@Vetoed
 public class MapBooksService implements BooksService {
 
 	public MapBooksService(){

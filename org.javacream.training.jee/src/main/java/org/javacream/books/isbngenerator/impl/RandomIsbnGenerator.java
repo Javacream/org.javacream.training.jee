@@ -6,12 +6,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
 import org.javacream.util.Config;
-import org.javacream.util.stages.Prod;
 
-@RandomStrategy
-@Prod
 @ApplicationScoped
 public class RandomIsbnGenerator implements IsbnGenerator {
 

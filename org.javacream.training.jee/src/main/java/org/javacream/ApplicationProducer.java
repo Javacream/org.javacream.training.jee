@@ -13,25 +13,36 @@ import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.books.warehouse.impl.MapBooksService;
 import org.javacream.store.api.StoreService;
 import org.javacream.util.Config;
+import org.javacream.util.stages.Prod;
 
 public class ApplicationProducer {
 
-	@Produces @ApplicationScoped
+	@Produces
+	@ApplicationScoped
 	public BooksService booksService(StoreService storeService, @RandomStrategy IsbnGenerator isbnGenerator) {
-		MapBooksService booksService =  new MapBooksService();
+		MapBooksService booksService = new MapBooksService();
 		booksService.setStoreService(storeService);
 		booksService.setIsbnGenerator(isbnGenerator);
 		HashMap<String, Book> books = new HashMap<String, Book>();
-		//Demo Daten hinzufügen...
+		Book book = new Book();
+		book.setIsbn("TEST_ISBN");
+		book.setTitle("TEST_Title");
+		book.setPrice(19.99);
+		books.put(book.getIsbn(), book);
 		booksService.setBooks(books);
 		return booksService;
 	}
-	
-	@Produces @Config(property="isbngenerator.prefix") String prefix() {
+
+	@Produces
+	@Config(property = "isbngenerator.prefix")
+	String prefix() {
 		return "ISBN:";
 	}
 
-	@Produces IsbnGenerator isbngenerator(RandomIsbnGenerator rg) {
+	@Produces
+	@RandomStrategy
+	@Prod
+	IsbnGenerator isbngenerator(RandomIsbnGenerator rg) {
 		rg.setCountryCode("-de");
 		return rg;
 	}
