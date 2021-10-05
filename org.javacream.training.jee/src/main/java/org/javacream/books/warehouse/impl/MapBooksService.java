@@ -9,11 +9,11 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.impl.CounterIsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
-import org.javacream.store.impl.SimpleStoreService;
+import org.javacream.store.api.StoreService;
 
 /**
  * @author Dr. Rainer Sawitzki
@@ -27,30 +27,19 @@ public class MapBooksService implements BooksService {
 	public MapBooksService(){
 		this.books = new HashMap<String, Book>();
 	}
-//	public MapBooksService(IsbnGenerator isbngenerator,
-//			Map<String, Book> books, StoreService storeService) {
-//		super();
-//		this.isbnGenerator = isbngenerator;
-//		this.books = books;
-//		this.storeService = storeService;
-//	}
-
-
-	//private IsbnGenerator isbnGenerator;
-	@Inject private CounterIsbnGenerator isbnGenerator;
+	@Inject @RandomStrategy private IsbnGenerator isbnGenerator;
 	private Map<String, Book> books;
-//	private StoreService storeService;
-	@Inject private SimpleStoreService storeService;
+	@Inject private StoreService storeService;
 	{
 		books = new HashMap<String, Book>();
 	}
 
 	
-	public void setStoreService(SimpleStoreService storeService) {
+	public void setStoreService(StoreService storeService) {
 		this.storeService = storeService;
 	}
 
-	public void setIsbnGenerator(CounterIsbnGenerator isbnGenerator) {
+	public void setIsbnGenerator(IsbnGenerator isbnGenerator) {
 		this.isbnGenerator = isbnGenerator;
 	}
 

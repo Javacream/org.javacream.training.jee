@@ -9,14 +9,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.javacream.books.isbngenerator.impl.CounterIsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 
 @Path("/isbn")
 @ApplicationScoped
 public class IsbnGeneratorRestService {
 
-	@Inject 
-	private CounterIsbnGenerator isbnGenerator;
+	@Inject @SequenceStrategy
+	private IsbnGenerator isbnGenerator;
 
 //	private IsbnGeneratorRestService()
 	{
