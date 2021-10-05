@@ -6,7 +6,7 @@
 	bean-discovery-mode="all">
 	<alternatives>
 		<!-- <class>org.javacream.books.isbngenerator.impl.RandomIsbnGenerator</class> -->
-		<stereotype>org.javacream.util.stages.Prod</stereotype>
+		<stereotype>org.javacream.util.stages.Dev</stereotype>
 		
 	</alternatives>
 </beans>

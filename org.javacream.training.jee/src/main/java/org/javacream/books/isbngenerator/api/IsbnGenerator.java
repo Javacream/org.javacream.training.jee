@@ -3,9 +3,9 @@ package org.javacream.books.isbngenerator.api;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.ElementType.TYPE_PARAMETER;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
@@ -16,13 +16,13 @@ public interface IsbnGenerator {
 	public abstract String next();
 
 	@Retention(RUNTIME)
-	@Target({ TYPE, FIELD, METHOD, TYPE_PARAMETER })
+	@Target({ TYPE, FIELD, METHOD, ElementType.PARAMETER})
 	@Qualifier
 	public @interface RandomStrategy {
 
 	}	
 	@Retention(RUNTIME)
-	@Target({ TYPE, FIELD, METHOD, TYPE_PARAMETER })
+	@Target({ TYPE, FIELD, METHOD, ElementType.PARAMETER})
 	@Qualifier
 	public @interface SequenceStrategy {
 

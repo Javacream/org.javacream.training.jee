@@ -7,14 +7,14 @@ import javax.ws.rs.Path;
 
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
-import org.javacream.books.warehouse.impl.MapBooksService;
+import org.javacream.books.warehouse.api.BooksService;
 
 @ApplicationScoped
 @Path("/books")
 public class BooksApplication {
 
 
-	@Inject private MapBooksService booksService;
+	@Inject private BooksService booksService;
 	
 
 	@GET

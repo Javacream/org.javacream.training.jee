@@ -5,11 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Inject;
-
 import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
@@ -27,9 +24,11 @@ public class MapBooksService implements BooksService {
 	public MapBooksService(){
 		this.books = new HashMap<String, Book>();
 	}
-	@Inject @RandomStrategy private IsbnGenerator isbnGenerator;
+	//@Inject @RandomStrategy 
+	private IsbnGenerator isbnGenerator;
 	private Map<String, Book> books;
-	@Inject private StoreService storeService;
+	//@Inject 
+	private StoreService storeService;
 	{
 		books = new HashMap<String, Book>();
 	}
