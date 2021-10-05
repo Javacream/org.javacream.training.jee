@@ -7,7 +7,9 @@ import javax.enterprise.inject.Produces;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 import org.javacream.books.isbngenerator.impl.RandomIsbnGenerator;
+import org.javacream.books.isbngenerator.impl.SequenceIsbnGenerator;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.books.warehouse.impl.MapBooksService;
@@ -38,13 +40,18 @@ public class ApplicationProducer {
 	String prefix() {
 		return "ISBN:";
 	}
+	@Produces
+	@Config(property = "isbngenerator.countryCode")
+	String suffix() {
+		return "-dk";
+	}
 
 	@Produces
-	@RandomStrategy
-	@Prod
-	IsbnGenerator isbngenerator(RandomIsbnGenerator rg) {
-		rg.setCountryCode("-de");
-		return rg;
+	@SequenceStrategy @Prod @ApplicationScoped
+	IsbnGenerator isbngeneratorSequence(SequenceIsbnGenerator sequenceIsbnGenerator ) {
+		sequenceIsbnGenerator.setPrefix("ISBN:");
+		sequenceIsbnGenerator.setCountryCode("-de");
+		return sequenceIsbnGenerator;
 	}
 
 }

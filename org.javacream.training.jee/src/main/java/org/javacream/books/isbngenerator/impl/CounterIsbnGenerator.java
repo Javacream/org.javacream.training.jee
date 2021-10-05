@@ -4,9 +4,12 @@ import javax.enterprise.context.ApplicationScoped;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
+import org.javacream.util.stages.Dev;
 
 @ApplicationScoped
 @SequenceStrategy
+@Dev
+
 public class CounterIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
