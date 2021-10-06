@@ -25,6 +25,8 @@ public class InitlizerWebService {
 		entityManager.createNativeQuery("INSERT INTO STORE (category, item, stock) values ('Book', 'ISBN2', 43)").executeUpdate();
 		entityManager.createNativeQuery("INSERT INTO STORE (category, item, stock) values ('Book', 'ISBN3', 52)").executeUpdate();
 		entityManager.createNativeQuery("INSERT INTO STORE (category, item, stock) values ('Book', 'ISBN4', 62)").executeUpdate();
+		entityManager.createNativeQuery("INSERT INTO Book (isbn, title, price) values ('ISBN1', 'Title1', 19.99)").executeUpdate();
+		entityManager.createNativeQuery("INSERT INTO Book (isbn, title, price) values ('ISBN2', 'Title2', 9.99)").executeUpdate();
 
 		return "OK";
 	}

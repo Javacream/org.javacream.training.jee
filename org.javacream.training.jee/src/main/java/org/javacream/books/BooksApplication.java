@@ -24,7 +24,7 @@ public class BooksApplication {
 			System.out.println("Generated Book: " + isbn);
 			Book book = booksService.findBookByIsbn(isbn);
 			System.out.println("Found Book: " + book);
-			System.out.println("Found Test-Book: " + booksService.findBookByIsbn("TEST_ISBN"));
+			System.out.println("Found Test-Book: " + booksService.findBookByIsbn("ISBN1"));
 			
 				
 		} catch (BookException e) {
