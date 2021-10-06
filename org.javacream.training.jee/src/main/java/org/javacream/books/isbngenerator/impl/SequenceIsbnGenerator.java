@@ -1,11 +1,17 @@
 package org.javacream.books.isbngenerator.impl;
 
+import java.util.Date;
+
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.logger.DatabaseLogger;
 
+//@Transactional(TxType.REQUIRED) //Default-Attribut
+@Transactional
 public class SequenceIsbnGenerator implements IsbnGenerator {
 
 	@PersistenceContext
@@ -13,6 +19,7 @@ public class SequenceIsbnGenerator implements IsbnGenerator {
 	private String prefix;
 	private String countryCode;
 
+	@Inject private DatabaseLogger databaseLogger;
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -21,10 +28,10 @@ public class SequenceIsbnGenerator implements IsbnGenerator {
 		this.countryCode = suffix;
 	}
 
-	@Transactional
 	public String next() {
 		Integer actual = (Integer) entityManager.createNativeQuery("select isbn from ISBN").getResultList().get(0);
 		actual++;
+		databaseLogger.log("created isbn " + actual + " at " + new Date());
 		entityManager.createNativeQuery("update ISBN set isbn=" + actual).executeUpdate();
 		return prefix + actual + countryCode;
 	}
