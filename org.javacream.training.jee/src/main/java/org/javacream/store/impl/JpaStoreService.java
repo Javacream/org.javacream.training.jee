@@ -24,6 +24,11 @@ public class JpaStoreService implements StoreService {
 			query.setParameter("cat", category);
 			query.setParameter("item", item);
 			StoreEntry storeEntry = (StoreEntry) query.getSingleResult();
+			
+			Query query2 = entityManager.createNativeQuery("select * from STORE",
+					StoreEntry.class);
+			StoreEntry storeEntry2 = (StoreEntry) query2.getResultList().get(0);
+			System.out.println("Referenzvergleich: " + (storeEntry==storeEntry2));
 			return storeEntry.getStock();
 		} catch (NoResultException e) {
 			System.out.println(e.getMessage());
