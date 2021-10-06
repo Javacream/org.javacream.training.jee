@@ -20,15 +20,17 @@ import org.javacream.store.api.StoreService;
  * @mailto rainer.sawitzki@javacream.org
  * 
  */
-@Transactional
+@Transactional(rollbackOn = {BookException.class})
 public class JpaBooksService implements BooksService {
 
-	@PersistenceContext private EntityManager entityManager;
-	@Inject @SequenceStrategy 
+	@PersistenceContext
+	private EntityManager entityManager;
+	@Inject
+	@SequenceStrategy
 	private IsbnGenerator isbnGenerator;
-	@Inject 
+	@Inject
 	private StoreService storeService;
-	
+
 	public void setStoreService(StoreService storeService) {
 		this.storeService = storeService;
 	}
@@ -49,29 +51,36 @@ public class JpaBooksService implements BooksService {
 	public IsbnGenerator getIsbnGenerator() {
 		return isbnGenerator;
 	}
+
 	public Book findBookByIsbn(String isbn) throws BookException {
-		Book result = entityManager.find(Book.class, isbn);
-		if (result == null) {
-			throw new BookException(BookException.BookExceptionType.NOT_FOUND,
-					isbn);
+		try {
+			Book result = entityManager.find(Book.class, isbn);
+			result.setAvailable(storeService.getStock("Book", isbn) > 0);
+			return result;
+		} catch (RuntimeException e) {
+			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
-		result.setAvailable(storeService.getStock("books", isbn) > 0);
-		
-		return result;
 	}
 
 	public Book updateBook(Book book) throws BookException {
-		entityManager.merge(book);
+		try {
+			entityManager.merge(book);
+		} catch (RuntimeException e) {
+			throw new BookException(BookException.BookExceptionType.NOT_FOUND, book.getIsbn());
+		}
 		return book;
 	}
 
 	public void deleteBookByIsbn(String isbn) throws BookException {
-		entityManager.remove(entityManager.getReference(Book.class, isbn));
+		try {
+			entityManager.remove(entityManager.getReference(Book.class, isbn));
+		} catch (RuntimeException e) {
+			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
+		}
 	}
-
 
 	public Collection<Book> findAllBooks() {
 		return entityManager.createQuery("select b from Book as b", Book.class).getResultList();
 	}
-	
+
 }

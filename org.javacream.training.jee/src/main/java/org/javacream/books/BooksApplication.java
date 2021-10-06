@@ -25,7 +25,8 @@ public class BooksApplication {
 			Book book = booksService.findBookByIsbn(isbn);
 			System.out.println("Found Book: " + book);
 			System.out.println("Found Test-Book: " + booksService.findBookByIsbn("ISBN1"));
-			
+			System.out.println(booksService.findAllBooks());
+			booksService.deleteBookByIsbn(isbn);
 				
 		} catch (BookException e) {
 			e.printStackTrace();
