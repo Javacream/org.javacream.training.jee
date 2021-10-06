@@ -34,11 +34,11 @@ public class SequenceIsbnGenerator implements IsbnGenerator {
 		Integer actual = (Integer) entityManager.createNativeQuery("select isbn from ISBN").getResultList().get(0);
 		actual++;
 		entityManager.createNativeQuery("update ISBN set isbn=" + actual).executeUpdate();
-		//try {
-			databaseLogger.logRequiresNew("created isbn " + actual + " at " + new Date());
-//		} catch (RuntimeException e) {
-//			System.out.println("catched exception from DatabaseLogger");
-//		}
+		try {
+			databaseLogger.log("created isbn " + actual + " at " + new Date(), true);
+		} catch (RuntimeException e) {
+			System.out.println("catched exception from DatabaseLogger");
+		}
 		return prefix + actual + countryCode;
 	}
 
