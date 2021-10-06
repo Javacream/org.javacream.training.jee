@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
@@ -20,7 +21,7 @@ import org.javacream.store.api.StoreService;
  * @mailto rainer.sawitzki@javacream.org
  * 
  */
-@Transactional(rollbackOn = {BookException.class})
+@Transactional(value=TxType.REQUIRES_NEW, rollbackOn = {BookException.class})
 public class JpaBooksService implements BooksService {
 
 	@PersistenceContext
