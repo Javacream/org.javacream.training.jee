@@ -6,10 +6,10 @@
 
 * Beispiele
   * https://github.com/Javacream/org.javacream.training.jee
-    *  Branch blum_4.10.2021
+    *  Branch blum_11.10.2021
     
 * Digitales Flipchart
-  * https://docs.google.com/presentation/d/1gk0HCXRylgJ7c9CUxaj9OtZ-ADNxvk8gNoU33AWxse0/edit?usp=sharing
+  * https://docs.google.com/presentation/d/1vr1Og9bn6OZ3RCTsrIxMS0ViYWFUkWpkiGjwe34bgv4/edit?usp=sharing
   * 
 * Seminarzeiten
   * 16 Unterrichtseinheiten mit jeweils etwa 90 Minuten
