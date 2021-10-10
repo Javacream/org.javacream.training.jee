@@ -1,6 +1,6 @@
 # org.javacream.training.jee
 
-## Durchführung des Seminars vom 4.-7.10.2021
+## Durchführung des Seminars vom 11.-14.10.2021
 
 * Referent: Rainer Sawitzki, eMail: training@rainer-sawitzki.de
 
