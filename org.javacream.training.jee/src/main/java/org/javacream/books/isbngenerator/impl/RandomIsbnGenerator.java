@@ -2,6 +2,8 @@ package org.javacream.books.isbngenerator.impl;
 
 import java.util.Random;
 
+import javax.annotation.PostConstruct;
+
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 
 public class RandomIsbnGenerator implements IsbnGenerator {
@@ -12,6 +14,10 @@ public class RandomIsbnGenerator implements IsbnGenerator {
 		return countryCode;
 	}
 
+	@PostConstruct public void init() {
+		prefix = "ISBN:";
+		countryCode = "-de";
+	}
 	public void setCountryCode(String suffix) {
 		this.countryCode = suffix;
 	}
