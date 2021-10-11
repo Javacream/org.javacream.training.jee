@@ -3,9 +3,11 @@ package org.javacream.books.isbngenerator.impl;
 import java.util.Random;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 
+@RequestScoped
 public class RandomIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
