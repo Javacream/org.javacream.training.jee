@@ -6,11 +6,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 import org.javacream.store.api.StoreService;
+import org.javacream.util.qualifiers.UseForDi;
 
 @Path("store")
 public class StoreWebService {
 
-	@Inject private StoreService storeService;
+	@Inject @UseForDi private StoreService storeService;
 	
 	@GET @Path("{cat}/{item}") public String getStock(@PathParam("cat") String category, @PathParam("item") String item) {
 		return "Stock: " + storeService.getStock(category, item);

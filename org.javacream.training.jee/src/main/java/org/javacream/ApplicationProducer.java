@@ -8,12 +8,13 @@ import org.javacream.books.isbngenerator.impl.CounterIsbnGenerator;
 import org.javacream.store.api.StoreService;
 import org.javacream.store.impl.SimpleStoreService;
 import org.javacream.util.qualifiers.Config;
+import org.javacream.util.qualifiers.UseForDi;
 
 @ApplicationScoped
 public class ApplicationProducer {
 	
-	@Produces @ApplicationScoped StoreService storeService(@Config(property = "storeService.stock") String stockString) {
-		SimpleStoreService simpleStoreService = new SimpleStoreService();
+	@Produces @UseForDi @ApplicationScoped StoreService storeService(@Config(property = "storeService.stock") String stockString, SimpleStoreService simpleStoreService) {
+		//SimpleStoreService simpleStoreService = new SimpleStoreService();
 		simpleStoreService.setStock(Integer.parseInt(stockString));
 		return simpleStoreService;
 	}

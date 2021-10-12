@@ -6,9 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.SerializationUtils;
+import org.javacream.books.event.BookEvent;
+import org.javacream.books.event.BookEvent.Created;
+import org.javacream.books.event.BookEvent.Deleted;
+import org.javacream.books.event.BookEvent.Updated;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 import org.javacream.books.warehouse.api.Book;
@@ -25,27 +30,38 @@ import org.javacream.store.api.StoreService;
 @ApplicationScoped
 public class MapBooksService implements BooksService {
 
-	public MapBooksService(){
+	@Inject
+	@Created
+	Event<BookEvent> createdEventSender;
+	@Inject
+	@Updated
+	Event<BookEvent> updatedEventSender;
+	@Inject
+	@Deleted
+	Event<BookEvent> deletedEventSender;
+
+	public MapBooksService() {
 		this.books = new HashMap<String, Book>();
 	}
-	public MapBooksService(IsbnGenerator isbngenerator,
-			Map<String, Book> books, StoreService storeService) {
+
+	public MapBooksService(IsbnGenerator isbngenerator, Map<String, Book> books, StoreService storeService) {
 		super();
 		this.isbnGenerator = isbngenerator;
 		this.books = books;
 		this.storeService = storeService;
 	}
 
-
-	@Inject  @SequenceStrategy  IsbnGenerator isbnGenerator;
+	@Inject
+	@SequenceStrategy
+	IsbnGenerator isbnGenerator;
 	private Map<String, Book> books;
-	@Inject private StoreService storeService;
-	
+	@Inject
+	private StoreService storeService;
+
 	{
 		books = new HashMap<String, Book>();
 	}
 
-	
 	public void setStoreService(StoreService storeService) {
 		this.storeService = storeService;
 	}
@@ -60,42 +76,44 @@ public class MapBooksService implements BooksService {
 		book.setIsbn(isbn);
 		book.setTitle(title);
 		books.put(isbn, book);
+		createdEventSender.fire(new BookEvent(isbn));
 		return isbn;
 	}
 
 	public IsbnGenerator getIsbnGenerator() {
 		return isbnGenerator;
 	}
+
 	public Book findBookByIsbn(String isbn) throws BookException {
 		Book result = (Book) books.get(isbn);
 		if (result == null) {
-			throw new BookException(BookException.BookExceptionType.NOT_FOUND,
-					isbn);
+			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
 		result.setAvailable(storeService.getStock("books", isbn) > 0);
-		
+
 		return SerializationUtils.clone(result);
 	}
 
 	public Book updateBook(Book bookValue) throws BookException {
-		books.put(bookValue.getIsbn(), SerializationUtils.clone(bookValue)); 
+		books.put(bookValue.getIsbn(), SerializationUtils.clone(bookValue));
+		updatedEventSender.fire(new BookEvent(bookValue.getIsbn()));
 		return bookValue;
 	}
 
 	public void deleteBookByIsbn(String isbn) throws BookException {
 		Object result = books.remove(isbn);
 		if (result == null) {
-			throw new BookException(
-					BookException.BookExceptionType.NOT_DELETED, isbn);
+			throw new BookException(BookException.BookExceptionType.NOT_DELETED, isbn);
 		}
+		deletedEventSender.fire(new BookEvent(isbn));
 	}
-
 
 	public Collection<Book> findAllBooks() {
 		return SerializationUtils.clone(new ArrayList<Book>(books.values()));
 	}
+
 	public void setBooks(Map<String, Book> books) {
 		this.books = books;
 	}
-	
+
 }

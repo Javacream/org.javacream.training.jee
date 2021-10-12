@@ -1,10 +1,10 @@
 package org.javacream.store.impl;
 
-import javax.enterprise.inject.Vetoed;
+import javax.enterprise.event.Observes;
 
+import org.javacream.books.event.BookEvent;
 import org.javacream.store.api.StoreService;
 
-@Vetoed
 public class SimpleStoreService implements StoreService {
 	private int stock;
 	
@@ -17,4 +17,7 @@ public class SimpleStoreService implements StoreService {
 		this.stock = stock;
 	}
 
+	public void handleBookDeletion(@Observes @BookEvent.Deleted BookEvent event) {
+		System.out.println("SimpleStoreService: detected book deletion for isbn=" + event.getIsbn());
+	}
 }
