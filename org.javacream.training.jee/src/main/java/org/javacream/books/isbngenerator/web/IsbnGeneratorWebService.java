@@ -1,34 +1,28 @@
 package org.javacream.books.isbngenerator.web;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.qualifiers.RandomStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 
 @Path("isbn")
 @ApplicationScoped
 public class IsbnGeneratorWebService {
 
-	// private RandomIsbnGenerator isbnGenerator = new RandomIsbnGenerator();
-	// //FALSCH, KEIN CDI!!!!!
-	@Inject @RandomStrategy
-	private IsbnGenerator isbnGenerator;
+	@Inject @RandomStrategy	private IsbnGenerator randomIsbnGenerator;
+	@Inject @SequenceStrategy private IsbnGenerator sequenceIsbnGenerator;
 
-	{
-		System.out.println("constructing " + ", reference=" + isbnGenerator  + ", this=" + this);
-	}
-
-	@PostConstruct public void init() {
-		System.out.println("initializing "  + ", reference=" + isbnGenerator + ", this=" + this);
-		
-	}
 	
-	@GET
-	public String generateIsbn() {
-		return "Generated isbn: " + isbnGenerator.next() + ", reference=" + isbnGenerator + ", this=" + this;
+	@GET @Path("seq")
+	public String generateSequenceIsbn() {
+		return "Generated isbn: " + sequenceIsbnGenerator.next();
+	}
+	@GET @Path("rnd")
+	public String generateRandomIsbn() {
+		return "Generated isbn: " + randomIsbnGenerator.next();
 	}
 }

@@ -3,7 +3,7 @@ package org.javacream.books.isbngenerator.impl;
 import javax.enterprise.context.ApplicationScoped;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.qualifiers.SequenceStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 
 @ApplicationScoped
 @SequenceStrategy
