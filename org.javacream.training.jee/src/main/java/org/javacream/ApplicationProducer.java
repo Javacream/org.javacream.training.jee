@@ -8,13 +8,14 @@ import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 import org.javacream.books.isbngenerator.impl.CounterIsbnGenerator;
 import org.javacream.store.api.StoreService;
 import org.javacream.store.impl.SimpleStoreService;
+import org.javacream.util.qualifiers.Config;
 
 @ApplicationScoped
 public class ApplicationProducer {
 	
-	@Produces @ApplicationScoped StoreService storeService() {
+	@Produces @ApplicationScoped StoreService storeService(@Config(property = "storeService.stock") String stockString) {
 		SimpleStoreService simpleStoreService = new SimpleStoreService();
-		simpleStoreService.setStock(42);
+		simpleStoreService.setStock(Integer.parseInt(stockString));
 		return simpleStoreService;
 	}
 
@@ -24,5 +25,15 @@ public class ApplicationProducer {
 		counterIsbnGenerator.setCountryCode("-is");
 		//counterIsbnGenerator.init();
 		return counterIsbnGenerator;
+	}
+	
+	@Produces @Config(property = "storeService.stock") public String stock() {
+		return "4711";
+	}
+	@Produces @Config(property = "isbngenerator.prefix") public String isbnGeneratorPrefix() {
+		return "Isbn:";
+	}
+	@Produces @Config(property = "isbngenerator.countryCode") public String isbnGeneratorCountryCode() {
+		return "-dk";
 	}
 }

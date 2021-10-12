@@ -1,25 +1,26 @@
 package org.javacream.books.isbngenerator.impl;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
+import org.javacream.util.qualifiers.Config;
 
 @RequestScoped
 @RandomStrategy
 public class MathRandomIsbnGenerator implements IsbnGenerator {
 
-	private String prefix;
-	private String countryCode;
+	@Inject @Config(property="isbngenerator.prefix") private String prefix;
+	@Inject @Config(property="isbngenerator.countryCode") private String countryCode;
 	public String getCountryCode() {
 		return countryCode;
 	}
 
-	@PostConstruct public void init() {
-		prefix = "ISBN:";
-		countryCode = "-de";
-	}
+//	@PostConstruct public void init() {
+//		prefix = "ISBN:";
+//		countryCode = "-de";
+//	}
 	public void setCountryCode(String suffix) {
 		this.countryCode = suffix;
 	}
