@@ -7,6 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.qualifiers.RandomStrategy;
 
 @Path("isbn")
 @ApplicationScoped
@@ -14,7 +15,7 @@ public class IsbnGeneratorWebService {
 
 	// private RandomIsbnGenerator isbnGenerator = new RandomIsbnGenerator();
 	// //FALSCH, KEIN CDI!!!!!
-	@Inject
+	@Inject @RandomStrategy
 	private IsbnGenerator isbnGenerator;
 
 	{

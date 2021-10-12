@@ -10,6 +10,7 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.qualifiers.SequenceStrategy;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
@@ -36,7 +37,7 @@ public class MapBooksService implements BooksService {
 	}
 
 
-	@Inject  IsbnGenerator isbnGenerator;
+	@Inject  @SequenceStrategy  IsbnGenerator isbnGenerator;
 	private Map<String, Book> books;
 	@Inject private StoreService storeService;
 	

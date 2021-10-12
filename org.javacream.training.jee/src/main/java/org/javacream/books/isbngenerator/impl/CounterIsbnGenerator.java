@@ -3,10 +3,10 @@ package org.javacream.books.isbngenerator.impl;
 import javax.enterprise.context.ApplicationScoped;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.util.stages.Prod;
+import org.javacream.books.isbngenerator.qualifiers.SequenceStrategy;
 
 @ApplicationScoped
-@Prod
+@SequenceStrategy
 public class CounterIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
