@@ -2,6 +2,7 @@ package org.javacream;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
@@ -9,8 +10,9 @@ import javax.ws.rs.Path;
 public class InitializerWebService {
 
 	@PersistenceContext private EntityManager entityManager;
-	@GET public String doInit() {
-		entityManager.createNativeQuery("drop table if exists ISBN");
-		return "OK";
+	@GET @Transactional public String doInit() {
+		entityManager.createNativeQuery("drop table if exists ISBN").executeUpdate();		
+		entityManager.createNativeQuery("create table ISBN (isbn integer)").executeUpdate();
+		entityManager.createNativeQuery("insert into ISBN values (0)").executeUpdate();		return "OK";
 	}
 }
