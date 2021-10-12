@@ -1,12 +1,12 @@
 package org.javacream.books.isbngenerator.impl;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Alternative;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.util.stages.Prod;
 
 @ApplicationScoped
-@Alternative
+@Prod
 public class CounterIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
