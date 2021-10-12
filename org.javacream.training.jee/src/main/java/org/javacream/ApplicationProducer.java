@@ -18,11 +18,11 @@ public class ApplicationProducer {
 		return simpleStoreService;
 	}
 
-	@Produces @ApplicationScoped @SequenceStrategy public IsbnGenerator isbnSequenceGenerator() {
-		CounterIsbnGenerator counterIsbnGenerator = new CounterIsbnGenerator();
+	@Produces @ApplicationScoped @SequenceStrategy public IsbnGenerator isbnSequenceGenerator(CounterIsbnGenerator counterIsbnGenerator) {
+		//CounterIsbnGenerator counterIsbnGenerator = new CounterIsbnGenerator();
 		counterIsbnGenerator.setPrefix("ISBN:");
 		counterIsbnGenerator.setCountryCode("-is");
-		counterIsbnGenerator.init();
+		//counterIsbnGenerator.init();
 		return counterIsbnGenerator;
 	}
 }

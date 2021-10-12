@@ -1,11 +1,9 @@
 package org.javacream.books.isbngenerator.impl;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Vetoed;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 
-@Vetoed
 public class CounterIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
