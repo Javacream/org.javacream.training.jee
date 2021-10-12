@@ -1,13 +1,14 @@
 package org.javacream.books.isbngenerator.impl;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 
-@ApplicationScoped
+@RequestScoped
 @Alternative
-public class CounterIsbnGenerator implements IsbnGenerator {
+public class MathRandomIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
 	private String countryCode;
@@ -15,12 +16,16 @@ public class CounterIsbnGenerator implements IsbnGenerator {
 		return countryCode;
 	}
 
+	@PostConstruct public void init() {
+		prefix = "ISBN:";
+		countryCode = "-de";
+	}
 	public void setCountryCode(String suffix) {
 		this.countryCode = suffix;
 	}
-	private int counter;
+	
 	public String next(){
-		return prefix + counter++ + countryCode;
+		return prefix + Math.random() + countryCode;
 	}
 
 	public String getPrefix(){
