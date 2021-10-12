@@ -1,7 +1,10 @@
 package org.javacream.store.impl;
 
+import javax.enterprise.inject.Vetoed;
+
 import org.javacream.store.api.StoreService;
 
+@Vetoed
 public class SimpleStoreService implements StoreService {
 	private int stock;
 	
