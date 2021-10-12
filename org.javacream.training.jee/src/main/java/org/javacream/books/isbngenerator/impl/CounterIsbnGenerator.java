@@ -1,12 +1,11 @@
 package org.javacream.books.isbngenerator.impl;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Vetoed;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 
-@ApplicationScoped
-@SequenceStrategy
+@Vetoed
 public class CounterIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
@@ -15,6 +14,9 @@ public class CounterIsbnGenerator implements IsbnGenerator {
 		return countryCode;
 	}
 
+	@PostConstruct public void init() {
+		counter = 9;
+	}
 	public void setCountryCode(String suffix) {
 		this.countryCode = suffix;
 	}
