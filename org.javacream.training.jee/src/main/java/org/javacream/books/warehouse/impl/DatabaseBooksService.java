@@ -71,11 +71,9 @@ public class DatabaseBooksService implements BooksService {
 		} catch (RuntimeException e) {
 			throw new BookException(BookExceptionType.NOT_CREATED, isbn);
 		}
-		book.setPrice(19.99);
-		System.out.println(book);
 		createdEventSender.fire(new BookEvent(isbn));
 		return isbn;
-	}//Hier erfolgt das eigentliche Speichern des book(!)
+	}// Hier erfolgt das eigentliche Speichern des book(!)
 
 	public Book findBookByIsbn(String isbn) throws BookException {
 		System.out.println(isbn);
@@ -83,27 +81,14 @@ public class DatabaseBooksService implements BooksService {
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
-		entityManager.detach(result);
-		Book result2 = entityManager.createQuery("select b from Book as b where b.isbn = '" + isbn + "'", Book.class).getSingleResult();
-		Book result3 = (Book) entityManager.createNativeQuery("select * from BOOKS where isbn = '" + isbn + "'", Book.class).getSingleResult();
-		List<Book> resultList = entityManager.createQuery("select b from Book as b", Book.class).getResultList();
-		Book result4 = resultList.get(0);
-		result.setTitle("CHANGED");
-		System.out.println("1: " + result);
-		System.out.println("2: " + result2);
-		System.out.println("3: " + result3);
-		System.out.println("4: " + result4);
-		System.out.println("Identitities" + (result==result2) + ", " + (result==result3) + ", " + (result==result4));
-		
+
 		result.setAvailable(storeService.getStock("books", isbn) > 0);
 
 		return result;
 	}
 
 	public Book updateBook(Book book) throws BookException {
-		Book attachedBook = entityManager.merge(book);
-		book.setPrice(6.66);
-		attachedBook.setPrice(47.11);
+		entityManager.merge(book);
 		updatedEventSender.fire(new BookEvent(book.getIsbn()));
 		return book;
 	}
@@ -142,21 +127,24 @@ public class DatabaseBooksService implements BooksService {
 		return result;
 
 	}
+
 	@Override
-	public List<Book> findBooksByTitle(String title){
+	public List<Book> findBooksByTitle(String title) {
 		System.out.println("title=" + title);
 
-		TypedQuery<Book> query = entityManager.createQuery("select b from Book as b where b.title like :title", Book.class);
+		TypedQuery<Book> query = entityManager.createQuery("select b from Book as b where b.title like :title",
+				Book.class);
 		query.setParameter("title", title);
 		return query.getResultList();
 	}
+
 	@Override
-	public List<Book> findBooksByPriceRange(double min, double max){
-		TypedQuery<Book> query = entityManager.createQuery("select b from Book as b where b.price < :max and b.price > :min", Book.class);
+	public List<Book> findBooksByPriceRange(double min, double max) {
+		TypedQuery<Book> query = entityManager
+				.createQuery("select b from Book as b where b.price < :max and b.price > :min", Book.class);
 		query.setParameter("min", min);
 		query.setParameter("max", max);
 		return query.getResultList();
 	}
 
-	
 }
