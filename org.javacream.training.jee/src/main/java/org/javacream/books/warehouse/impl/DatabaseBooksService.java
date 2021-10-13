@@ -125,7 +125,7 @@ public class DatabaseBooksService implements BooksService {
 		return result;
 
 	}
-	public List<Book> findBookByTitle(String title){
+	public List<Book> findBooksByTitle(String title){
 		TypedQuery<Book> query = entityManager.createQuery("select b from Book as b where b.title like :title", Book.class);
 		query.setParameter("title", title);
 		return query.getResultList();
