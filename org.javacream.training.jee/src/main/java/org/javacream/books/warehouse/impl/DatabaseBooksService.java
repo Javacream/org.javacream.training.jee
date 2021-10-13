@@ -83,6 +83,7 @@ public class DatabaseBooksService implements BooksService {
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
+		entityManager.detach(result);
 		Book result2 = entityManager.createQuery("select b from Book as b where b.isbn = '" + isbn + "'", Book.class).getSingleResult();
 		Book result3 = (Book) entityManager.createNativeQuery("select * from BOOKS where isbn = '" + isbn + "'", Book.class).getSingleResult();
 		List<Book> resultList = entityManager.createQuery("select b from Book as b", Book.class).getResultList();
@@ -100,7 +101,9 @@ public class DatabaseBooksService implements BooksService {
 	}
 
 	public Book updateBook(Book book) throws BookException {
-		entityManager.merge(book);
+		Book attachedBook = entityManager.merge(book);
+		book.setPrice(6.66);
+		attachedBook.setPrice(47.11);
 		updatedEventSender.fire(new BookEvent(book.getIsbn()));
 		return book;
 	}
