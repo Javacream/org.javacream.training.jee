@@ -13,7 +13,7 @@ public class AllBookEventsConsumer {
 	public void handleBookUpate(@Observes @BookEvent.Updated BookEvent event) {
 		System.out.println("AllBookEventsConsumer: detected book update for isbn=" + event.getIsbn());
 	}
-	public void handleBookCreation(@Observes @BookEvent.Deleted BookEvent event) {
+	public void handleBookCreation(@Observes @BookEvent.Created BookEvent event) {
 		System.out.println("AllBookEventsConsumer: detected book creation for isbn=" + event.getIsbn());
 	}
 }

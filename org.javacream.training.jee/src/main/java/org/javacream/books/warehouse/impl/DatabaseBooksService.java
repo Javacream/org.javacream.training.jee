@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,10 +11,6 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import org.javacream.books.event.BookEvent;
-import org.javacream.books.event.BookEvent.Created;
-import org.javacream.books.event.BookEvent.Deleted;
-import org.javacream.books.event.BookEvent.Updated;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 import org.javacream.books.warehouse.api.Book;
@@ -33,16 +28,6 @@ import org.javacream.store.api.StoreService;
 @ApplicationScoped
 @Transactional
 public class DatabaseBooksService implements BooksService {
-
-	@Inject
-	@Created
-	Event<BookEvent> createdEventSender;
-	@Inject
-	@Updated
-	Event<BookEvent> updatedEventSender;
-	@Inject
-	@Deleted
-	Event<BookEvent> deletedEventSender;
 
 	@Inject
 	@SequenceStrategy
@@ -71,7 +56,6 @@ public class DatabaseBooksService implements BooksService {
 		} catch (RuntimeException e) {
 			throw new BookException(BookExceptionType.NOT_CREATED, isbn);
 		}
-		createdEventSender.fire(new BookEvent(isbn));
 		return isbn;
 	}// Hier erfolgt das eigentliche Speichern des book(!)
 
@@ -89,7 +73,6 @@ public class DatabaseBooksService implements BooksService {
 
 	public Book updateBook(Book book) throws BookException {
 		entityManager.merge(book);
-		updatedEventSender.fire(new BookEvent(book.getIsbn()));
 		return book;
 	}
 
@@ -102,7 +85,6 @@ public class DatabaseBooksService implements BooksService {
 			throw new BookException(BookException.BookExceptionType.NOT_DELETED, isbn);
 		}
 		entityManager.remove(result);
-		deletedEventSender.fire(new BookEvent(isbn));
 	}
 
 	public Collection<Book> findAllBooks() {
