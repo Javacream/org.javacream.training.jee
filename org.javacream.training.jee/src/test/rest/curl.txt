@@ -1,0 +1,4 @@
+curl -verbose -X POST http://localhost:8080/books/JEE
+curl -verbose -X GET http://localhost:8080/books/JEE
+curl -verbose -X GET http://localhost:8080/books/JEE/ISBNxxx
+curl -verbose -X DELETE http://localhost:8080/books/JEE/ISBNxxx
