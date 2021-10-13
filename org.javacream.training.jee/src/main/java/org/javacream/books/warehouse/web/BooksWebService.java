@@ -48,6 +48,7 @@ public class BooksWebService {
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Book updateBook(Book book) {
 		try {
 			return booksService.updateBook(book);
