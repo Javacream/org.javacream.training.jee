@@ -71,15 +71,29 @@ public class DatabaseBooksService implements BooksService {
 		} catch (RuntimeException e) {
 			throw new BookException(BookExceptionType.NOT_CREATED, isbn);
 		}
+		book.setPrice(19.99);
+		System.out.println(book);
 		createdEventSender.fire(new BookEvent(isbn));
 		return isbn;
-	}
+	}//Hier erfolgt das eigentliche Speichern des book(!)
 
 	public Book findBookByIsbn(String isbn) throws BookException {
-		Book result = (Book) entityManager.find(Book.class, isbn);
+		System.out.println(isbn);
+		Book result = entityManager.find(Book.class, isbn);
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
+		Book result2 = entityManager.createQuery("select b from Book as b where b.isbn = '" + isbn + "'", Book.class).getSingleResult();
+		Book result3 = (Book) entityManager.createNativeQuery("select * from BOOKS where isbn = '" + isbn + "'", Book.class).getSingleResult();
+		List<Book> resultList = entityManager.createQuery("select b from Book as b", Book.class).getResultList();
+		Book result4 = resultList.get(0);
+		result.setTitle("CHANGED");
+		System.out.println("1: " + result);
+		System.out.println("2: " + result2);
+		System.out.println("3: " + result3);
+		System.out.println("4: " + result4);
+		System.out.println("Identitities" + (result==result2) + ", " + (result==result3) + ", " + (result==result4));
+		
 		result.setAvailable(storeService.getStock("books", isbn) > 0);
 
 		return result;
