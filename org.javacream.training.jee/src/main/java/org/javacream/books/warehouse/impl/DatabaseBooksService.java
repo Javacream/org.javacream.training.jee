@@ -1,15 +1,16 @@
 package org.javacream.books.warehouse.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.transaction.Transactional;
 
-import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.event.BookEvent;
 import org.javacream.books.event.BookEvent.Created;
 import org.javacream.books.event.BookEvent.Deleted;
@@ -28,7 +29,8 @@ import org.javacream.store.api.StoreService;
  * 
  */
 @ApplicationScoped
-public class MapBooksService implements BooksService {
+@Transactional
+public class DatabaseBooksService implements BooksService {
 
 	@Inject
 	@Created
@@ -40,28 +42,14 @@ public class MapBooksService implements BooksService {
 	@Deleted
 	Event<BookEvent> deletedEventSender;
 
-	public MapBooksService() {
-		this.books = new HashMap<String, Book>();
-	}
-
-	public MapBooksService(IsbnGenerator isbngenerator, Map<String, Book> books, StoreService storeService) {
-		super();
-		this.isbnGenerator = isbngenerator;
-		this.books = books;
-		this.storeService = storeService;
-	}
-
 	@Inject
 	@SequenceStrategy
 	IsbnGenerator isbnGenerator;
-	private Map<String, Book> books;
 	@Inject
 	private StoreService storeService;
 
-	{
-		books = new HashMap<String, Book>();
-	}
-
+	@PersistenceContext private EntityManager entityManager;
+	
 	public void setStoreService(StoreService storeService) {
 		this.storeService = storeService;
 	}
@@ -75,7 +63,7 @@ public class MapBooksService implements BooksService {
 		Book book = new Book();
 		book.setIsbn(isbn);
 		book.setTitle(title);
-		books.put(isbn, book);
+		entityManager.persist(book);
 		createdEventSender.fire(new BookEvent(isbn));
 		return isbn;
 	}
@@ -85,23 +73,28 @@ public class MapBooksService implements BooksService {
 	}
 
 	public Book findBookByIsbn(String isbn) throws BookException {
-		Book result = (Book) books.get(isbn);
+		Book result = (Book) entityManager.find(Book.class, isbn);
+		//JPA signalisiert Fehler durch RuntimeExceptions, hier eine NoResultException
+		//TODO: Umstellen auf Exception-Handling
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
 		result.setAvailable(storeService.getStock("books", isbn) > 0);
 
-		return SerializationUtils.clone(result);
+		return result;
 	}
 
-	public Book updateBook(Book bookValue) throws BookException {
-		books.put(bookValue.getIsbn(), SerializationUtils.clone(bookValue));
-		updatedEventSender.fire(new BookEvent(bookValue.getIsbn()));
-		return bookValue;
+	public Book updateBook(Book book) throws BookException {
+		entityManager.merge(book);
+		updatedEventSender.fire(new BookEvent(book.getIsbn()));
+		return book;
 	}
 
 	public void deleteBookByIsbn(String isbn) throws BookException {
-		Object result = books.remove(isbn);
+		//TODO: Das muss gemacht werden! Ich lade doch zum Löschen nicht erst ds ganze Buch in den Hauptspeicher!
+		//TODO: Korrektes Exception Handling
+		Book result = entityManager.find(Book.class, isbn);
+		entityManager.remove(result);
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_DELETED, isbn);
 		}
@@ -109,11 +102,14 @@ public class MapBooksService implements BooksService {
 	}
 
 	public Collection<Book> findAllBooks() {
-		return SerializationUtils.clone(new ArrayList<Book>(books.values()));
+//		Query query = entityManager.createNativeQuery("SELECT * FROM BOOKS");
+//		List<Object[]> result = query.getResultList();
+		Query query = entityManager.createNativeQuery("SELECT * FROM BOOKS", Book.class);
+		@SuppressWarnings("unchecked")
+		List<Book> result = query.getResultList();
+		return result;
+
 	}
 
-	public void setBooks(Map<String, Book> books) {
-		this.books = books;
-	}
 
 }

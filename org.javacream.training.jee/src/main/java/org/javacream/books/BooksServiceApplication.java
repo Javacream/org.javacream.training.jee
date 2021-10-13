@@ -6,7 +6,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import org.javacream.books.warehouse.api.BookException;
-import org.javacream.books.warehouse.impl.MapBooksService;
+import org.javacream.books.warehouse.impl.DatabaseBooksService;
 
 @Path("books")
 @ApplicationScoped
@@ -16,7 +16,7 @@ public class BooksServiceApplication {
 	private String isbn2;
 
 	@Inject
-	private MapBooksService mapBooksService;
+	private DatabaseBooksService mapBooksService;
 
 	@Path("init")
 	@GET
