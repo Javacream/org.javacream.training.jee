@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="JPA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<!-- DataSource-Konfiguration -->
+			<property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
+			<property name="hibernate.connection.password" value="user" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://h2908727.stratoserver.net:3406/javacream" />
+			<property name="hibernate.connection.username" value="user" />
+			<!-- Hibernate Konfiguration -->
+			<property name="hibernate.archive.autodetection" value="class, hbm" />
+			<!-- <property name="hibernate.show_sql" value="true" /> -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+		</properties>
+	</persistence-unit>
+	
+</persistence>

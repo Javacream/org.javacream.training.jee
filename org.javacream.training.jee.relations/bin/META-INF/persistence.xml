@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="JPA_">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+		<properties>
+			<!-- DataSource-Konfiguration -->
+			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost" />
+			<property name="hibernate.connection.username" value="SA" />
+			<!-- Hibernate Konfiguration -->
+			<property name="hibernate.archive.autodetection" value="class, hbm" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<!-- 
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.SingletonEhCacheProvider"/>
+      		<property name="hibernate.cache.use_second_level_cache" value="true"/>
+      		<property name="hibernate.cache.use_query_cache" value="true"/>
+      		 -->
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="JPA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<!-- DataSource-Konfiguration -->
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.password" value="unilog" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/publishing" />
+			<property name="hibernate.connection.username" value="root" />
+			<!-- Hibernate Konfiguration -->
+			<property name="hibernate.archive.autodetection" value="class, hbm" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+<!--  			<property name="hibernate.hbm2ddl.auto" value="create" />-->
+			<!-- 
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.EhCacheProvider" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="true" />
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			 -->
+		</properties>
+	</persistence-unit>
+	
+</persistence>
