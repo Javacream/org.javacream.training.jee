@@ -1,6 +1,7 @@
 package org.javacream.books.warehouse.web;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -13,6 +14,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.javacream.books.warehouse.api.Book;
@@ -24,6 +26,27 @@ public class BooksWebService {
 
 	@Inject
 	private BooksService booksService;
+
+	@GET
+	@Path("price")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Book> findBooksByPriceRange(@QueryParam("min")  double min, @QueryParam("max") double max) {
+		return booksService.findBooksByPriceRange(min, max);
+	}
+
+	@GET
+	@Path("title/{title}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Book> findBooksByTitle(@PathParam("title") String title) {
+		return booksService.findBooksByTitle(title);
+	}
+
+	@GET
+	@Path("titles")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<String> findAllTitles() {
+		return booksService.findAllTitles();
+	}
 
 	@POST
 	@Path("{title}")

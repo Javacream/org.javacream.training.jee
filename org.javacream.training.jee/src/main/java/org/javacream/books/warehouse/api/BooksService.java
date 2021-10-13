@@ -1,6 +1,7 @@
 package org.javacream.books.warehouse.api;
 
 import java.util.Collection;
+import java.util.List;
 
 
 public interface BooksService{
@@ -13,4 +14,10 @@ public interface BooksService{
 	void deleteBookByIsbn(String isbn) throws BookException;
 	
 	Collection<Book> findAllBooks();
+
+	List<Book> findBooksByPriceRange(double min, double max);
+
+	List<Book> findBooksByTitle(String title);
+
+	Collection<String> findAllTitles();
 }

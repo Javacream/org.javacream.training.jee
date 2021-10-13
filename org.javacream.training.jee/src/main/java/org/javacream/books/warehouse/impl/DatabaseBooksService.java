@@ -1,6 +1,5 @@
 package org.javacream.books.warehouse.impl;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 
@@ -116,6 +115,7 @@ public class DatabaseBooksService implements BooksService {
 
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public Collection<String> findAllTitles() {
 		Query nativeQuery = entityManager.createNativeQuery("SELECT BOOK_TITLE FROM BOOKS");
@@ -125,9 +125,19 @@ public class DatabaseBooksService implements BooksService {
 		return result;
 
 	}
+	@Override
 	public List<Book> findBooksByTitle(String title){
+		System.out.println("title=" + title);
+
 		TypedQuery<Book> query = entityManager.createQuery("select b from Book as b where b.title like :title", Book.class);
 		query.setParameter("title", title);
+		return query.getResultList();
+	}
+	@Override
+	public List<Book> findBooksByPriceRange(double min, double max){
+		TypedQuery<Book> query = entityManager.createQuery("select b from Book as b where b.price < :max and b.price > :min", Book.class);
+		query.setParameter("min", min);
+		query.setParameter("max", max);
 		return query.getResultList();
 	}
 
