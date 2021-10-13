@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -24,6 +26,7 @@ import org.javacream.books.warehouse.api.BooksService;
 @Path("books")
 public class BooksWebService {
 
+	@PersistenceContext private EntityManager entityManager;
 	@Inject
 	private BooksService booksService;
 
@@ -58,12 +61,30 @@ public class BooksWebService {
 		}
 	}
 
+	@POST
+	@Path("demo/{title}")
+	public String newBookString(@PathParam("title") String title) {
+		try {
+			return booksService.newBookDemo(title);
+		} 
+		catch (RuntimeException re) {
+			return re.getMessage();
+		}
+		catch (BookException e) {
+			throw new NotAcceptableException("title");
+		}
+	}
+
+	
 	@GET
 	@Path("{isbn}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Book findBookByIsbn(@PathParam("isbn") String isbn) throws BookException {
+		
 		try {
-			return booksService.findBookByIsbn(isbn);
+			Book book = booksService.findBookByIsbn(isbn);
+					book.setTitle("CHANGED AGAIN");
+			return book;
 		} catch (BookException e) {
 			throw new NotFoundException(isbn);
 		}

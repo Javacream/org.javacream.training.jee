@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
@@ -59,6 +60,24 @@ public class DatabaseBooksService implements BooksService {
 		return isbn;
 	}// Hier erfolgt das eigentliche Speichern des book(!)
 
+	
+	@Override
+	@Transactional(value=TxType.REQUIRES_NEW)
+	public String newBookDemo(String title) throws BookException {
+		String isbn = isbnGenerator.next();
+		Book book = new Book();
+		book.setIsbn(isbn);
+		book.setTitle(title);
+		try {
+			entityManager.persist(book);
+		} catch (RuntimeException e) {
+			throw new BookException(BookExceptionType.NOT_CREATED, isbn);
+		}
+		throw new RuntimeException("TEST_ONLY");
+		//return isbn;
+	}// Hier erfolgt das eigentliche Speichern des book(!)
+
+	
 	public Book findBookByIsbn(String isbn) throws BookException {
 		System.out.println(isbn);
 		Book result = entityManager.find(Book.class, isbn);

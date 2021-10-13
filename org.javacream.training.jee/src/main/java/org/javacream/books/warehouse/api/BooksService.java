@@ -20,4 +20,6 @@ public interface BooksService{
 	List<Book> findBooksByTitle(String title);
 
 	Collection<String> findAllTitles();
+
+	String newBookDemo(String title) throws BookException;
 }

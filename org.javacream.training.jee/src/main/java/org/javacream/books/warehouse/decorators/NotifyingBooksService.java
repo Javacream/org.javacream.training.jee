@@ -44,5 +44,6 @@ public abstract class NotifyingBooksService implements BooksService{
 		deletedEventSender.fire(new BookEvent(isbn));
 	}
 
+
 	@Inject @Delegate @Any BooksService booksService;
 }

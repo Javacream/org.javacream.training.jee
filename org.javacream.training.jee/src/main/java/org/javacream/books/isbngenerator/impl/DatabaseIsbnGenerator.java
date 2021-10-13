@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
@@ -30,7 +31,7 @@ public class DatabaseIsbnGenerator implements IsbnGenerator {
 		this.countryCode = suffix;
 	}
 
-	@Transactional
+	@Transactional(TxType.REQUIRES_NEW)
 	public String next() {
 		Integer actual = (Integer) entityManager.createNativeQuery("select isbn from ISBN").getResultList().get(0);
 		actual++;
