@@ -16,9 +16,9 @@ public class Book implements Serializable {
 	@Id
 	private String isbn;
 
+	@Column(name = "BOOK_TITLE")
 	private String title;
 
-	@Column(name = "BOOK_PRICE")
 	private double price;
 
 	@Transient

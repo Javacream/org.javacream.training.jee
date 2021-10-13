@@ -1,5 +1,6 @@
 package org.javacream.books.warehouse.impl;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.javacream.books.event.BookEvent;
@@ -105,11 +107,29 @@ public class DatabaseBooksService implements BooksService {
 	public Collection<Book> findAllBooks() {
 //		Query query = entityManager.createNativeQuery("SELECT * FROM BOOKS");
 //		List<Object[]> result = query.getResultList();
-		Query query = entityManager.createNativeQuery("SELECT * FROM BOOKS", Book.class);
+		Query nativeQuery = entityManager.createNativeQuery("SELECT * FROM BOOKS", Book.class);
+		TypedQuery<Book> query = entityManager.createQuery("SELECT b FROM Book as b", Book.class);
 		@SuppressWarnings("unchecked")
-		List<Book> result = query.getResultList();
+		List<Book> result = nativeQuery.getResultList();
+		result = query.getResultList();
 		return result;
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public Collection<String> findAllTitles() {
+		Query nativeQuery = entityManager.createNativeQuery("SELECT BOOK_TITLE FROM BOOKS");
+		List<String> result = nativeQuery.getResultList();
+		Query query = entityManager.createQuery("SELECT b.title FROM Book as b");
+		result = query.getResultList();
+		return result;
+
+	}
+	public List<Book> findBookByTitle(String title){
+		TypedQuery<Book> query = entityManager.createQuery("select b from Book as b where b.title like :title", Book.class);
+		query.setParameter("title", title);
+		return query.getResultList();
+	}
+
+	
 }
