@@ -19,6 +19,7 @@ import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
+import org.javacream.books.warehouse.api.BookException.BookExceptionType;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.store.api.StoreService;
 
@@ -48,8 +49,9 @@ public class DatabaseBooksService implements BooksService {
 	@Inject
 	private StoreService storeService;
 
-	@PersistenceContext private EntityManager entityManager;
-	
+	@PersistenceContext
+	private EntityManager entityManager;
+
 	public void setStoreService(StoreService storeService) {
 		this.storeService = storeService;
 	}
@@ -63,19 +65,17 @@ public class DatabaseBooksService implements BooksService {
 		Book book = new Book();
 		book.setIsbn(isbn);
 		book.setTitle(title);
-		entityManager.persist(book);
+		try {
+			entityManager.persist(book);
+		} catch (RuntimeException e) {
+			throw new BookException(BookExceptionType.NOT_CREATED, isbn);
+		}
 		createdEventSender.fire(new BookEvent(isbn));
 		return isbn;
 	}
 
-	public IsbnGenerator getIsbnGenerator() {
-		return isbnGenerator;
-	}
-
 	public Book findBookByIsbn(String isbn) throws BookException {
 		Book result = (Book) entityManager.find(Book.class, isbn);
-		//JPA signalisiert Fehler durch RuntimeExceptions, hier eine NoResultException
-		//TODO: Umstellen auf Exception-Handling
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
@@ -91,13 +91,14 @@ public class DatabaseBooksService implements BooksService {
 	}
 
 	public void deleteBookByIsbn(String isbn) throws BookException {
-		//TODO: Das muss gemacht werden! Ich lade doch zum Löschen nicht erst ds ganze Buch in den Hauptspeicher!
-		//TODO: Korrektes Exception Handling
+		// TODO: Das muss gemacht werden! Ich lade doch zum Löschen nicht erst das ganze
+		// Buch in den Hauptspeicher!
+		// TODO: Korrektes Exception Handling
 		Book result = entityManager.find(Book.class, isbn);
-		entityManager.remove(result);
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_DELETED, isbn);
 		}
+		entityManager.remove(result);
 		deletedEventSender.fire(new BookEvent(isbn));
 	}
 
@@ -110,6 +111,5 @@ public class DatabaseBooksService implements BooksService {
 		return result;
 
 	}
-
 
 }
