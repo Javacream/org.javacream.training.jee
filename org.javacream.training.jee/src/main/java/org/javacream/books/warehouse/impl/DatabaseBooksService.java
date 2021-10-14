@@ -19,6 +19,8 @@ import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BookException.BookExceptionType;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.store.api.StoreService;
+import org.javacream.util.aop.ProfilingInterceptor.Profiling;
+import org.javacream.util.aop.TracingInterceptor.Tracing;
 
 /**
  * @author Dr. Rainer Sawitzki
@@ -28,6 +30,7 @@ import org.javacream.store.api.StoreService;
  */
 @ApplicationScoped
 @Transactional
+@Tracing
 public class DatabaseBooksService implements BooksService {
 
 	@Inject
@@ -47,6 +50,7 @@ public class DatabaseBooksService implements BooksService {
 		this.isbnGenerator = isbnGenerator;
 	}
 
+	@Profiling
 	public String newBook(String title) throws BookException {
 		String isbn = isbnGenerator.next();
 		Book book = new Book();

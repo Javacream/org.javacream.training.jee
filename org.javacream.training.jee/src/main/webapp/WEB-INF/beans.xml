@@ -13,5 +13,6 @@
 	</decorators>
 	<interceptors>
 	<class>org.javacream.util.aop.TracingInterceptor</class>
+	<class>org.javacream.util.aop.ProfilingInterceptor</class>
 	</interceptors>
 </beans>
