@@ -96,10 +96,10 @@ public class DatabaseBooksService implements BooksService {
 	}
 
 	public void deleteBookByIsbn(String isbn) throws BookException {
-		// TODO: Das muss gemacht werden! Ich lade doch zum Löschen nicht erst das ganze
+		// TODO: Das muss besser gemacht werden! Ich lade doch zum Löschen nicht erst das ganze
 		// Buch in den Hauptspeicher!
 		// TODO: Korrektes Exception Handling
-		Book result = entityManager.find(Book.class, isbn);
+		Book result = entityManager.getReference(Book.class, isbn);
 		if (result == null) {
 			throw new BookException(BookException.BookExceptionType.NOT_DELETED, isbn);
 		}

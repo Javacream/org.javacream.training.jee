@@ -11,4 +11,7 @@
 		<class>org.javacream.store.decorators.AuditingStoreServiceDecorator</class>
 		<class>org.javacream.books.warehouse.decorators.NotifyingBooksService</class>
 	</decorators>
+	<interceptors>
+	<class>org.javacream.util.aop.TracingInterceptor</class>
+	</interceptors>
 </beans>

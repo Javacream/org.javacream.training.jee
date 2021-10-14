@@ -43,7 +43,8 @@ public class Book implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 
-	@ManyToOne(fetch=FetchType.LAZY)
+	//@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne //fetch=FetchType.EAGER
 	private Publisher publisher;
 
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
