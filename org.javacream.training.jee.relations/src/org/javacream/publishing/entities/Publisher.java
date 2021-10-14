@@ -40,8 +40,8 @@ public class Publisher implements Serializable, Addressable {
 	private String publisherName;
 
 	// bi-directional many-to-one association to Book
-	//@OneToMany(mappedBy="publisher", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@OneToMany(mappedBy = "publisher") //fetch=FetchType.LAZY
+	@OneToMany(mappedBy="publisher", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	//@OneToMany(mappedBy = "publisher") //fetch=FetchType.LAZY
 	private Set<Book> books;
 
 	@Override
