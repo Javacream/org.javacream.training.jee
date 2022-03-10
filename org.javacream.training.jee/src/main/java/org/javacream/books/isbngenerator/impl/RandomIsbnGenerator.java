@@ -2,8 +2,11 @@ package org.javacream.books.isbngenerator.impl;
 
 import java.util.Random;
 
-import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 
+import org.javacream.books.isbngenerator.api.IsbnGenerator;
+@RequestScoped
 public class RandomIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;
@@ -17,8 +20,12 @@ public class RandomIsbnGenerator implements IsbnGenerator {
 	}
 	private Random random;
 	
-	{
+	@PostConstruct public void init(){
 		random = new Random(this.hashCode() + System.currentTimeMillis());
+		prefix = "ISBN:";
+		countryCode = "-dk";
+		System.out.println("initializing " + this);
+
 	}
 	
 	public String next(){

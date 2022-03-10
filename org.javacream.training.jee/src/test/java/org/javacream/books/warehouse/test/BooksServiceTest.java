@@ -11,6 +11,7 @@ public class BooksServiceTest {
 	public void testBusinessObjects() {
 		MapBooksService mapBooksService = new MapBooksService();
 		RandomIsbnGenerator randomIsbnGenerator = new RandomIsbnGenerator();
+		randomIsbnGenerator.init();
 		randomIsbnGenerator.setCountryCode("-de");
 		mapBooksService.setIsbnGenerator(randomIsbnGenerator);
 		mapBooksService.setStoreService(new SimpleStoreService());
