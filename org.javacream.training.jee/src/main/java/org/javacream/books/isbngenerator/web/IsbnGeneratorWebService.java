@@ -8,14 +8,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.javacream.books.isbngenerator.impl.RandomIsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGenerator;
 
 @Path("isbn")
 @ApplicationScoped
 public class IsbnGeneratorWebService {
 
 	@Inject
-	private RandomIsbnGenerator isbnGenerator;
+	private IsbnGenerator isbnGenerator;
 
 	@PostConstruct
 	public void init() {
