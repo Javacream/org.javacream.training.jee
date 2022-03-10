@@ -3,7 +3,7 @@
   <groupId>org.javacream.training</groupId>
   <artifactId>org.javacream.training.jee</artifactId>
   <version>1.0-SNAPSHOT</version>
-
+  <packaging>war</packaging>
 <dependencies>
 		<dependency>
 			<groupId>javax</groupId>
@@ -27,10 +27,14 @@
 		<defaultGoal>clean install</defaultGoal>
 		<plugins>
 			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.2</version>
+			</plugin>
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>11</source>
-					<target>11</target>
+					<source>8</source>
+					<target>8</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -42,7 +46,7 @@
 						<phase>install</phase>
 						<configuration>
 							<tasks>
-								<copy file="${project.build.directory}/jee.jar"
+								<copy file="${project.build.directory}/jee.war"
 									todir="C:\\_training\\tools\\wildfly-26.0.1.Final\\wildfly-26.0.1.Final\\standalone\\deployments" />
 							</tasks>
 						</configuration>
