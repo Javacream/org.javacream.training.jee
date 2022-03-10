@@ -43,7 +43,7 @@
 						<configuration>
 							<tasks>
 								<copy file="${project.build.directory}/jee.jar"
-									todir="/home/rainersawitzki/_training/tools/wildfly-preview-24.0.1.Final/standalone/deployments" />
+									todir="C:\\_training\\tools\\wildfly-26.0.1.Final\\wildfly-26.0.1.Final\\standalone\\deployments" />
 							</tasks>
 						</configuration>
 						<goals>
