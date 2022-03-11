@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.inject.Produces;
+import javax.inject.Named;
 
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.util.Dev;
@@ -12,10 +13,10 @@ import org.javacream.util.Prod;
 public class BooksServiceConfiguration {
 
 	
-	@Produces @Prod public Map<String, Book> booksMapForProd(){
+	@Produces @Prod @Named("forBooksService") public Map<String, Book> booksMapForProd(){
 		return new HashMap<String, Book>();
 	}
-	@Produces @Dev  public Map<String, Book> booksMapForDev(){
+	@Produces @Dev @Named("forBooksService") public Map<String, Book> booksMapForDev(){
 		HashMap<String, Book> data = new HashMap<String, Book>();
 		Book b = new Book();
 		b.setIsbn("ISBN-TEST");

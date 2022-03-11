@@ -1,6 +1,10 @@
 package org.javacream.books.isbngenerator.impl;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.util.SequenceIdGenerator;
 
 //@Vetoed
 //@Alternative
@@ -16,9 +20,9 @@ public class CounterIsbnGenerator implements IsbnGenerator {
 	public void setCountryCode(String suffix) {
 		this.countryCode = suffix;
 	}
-	private int counter;
+	@Inject @Named("forIsbnGenerator") private SequenceIdGenerator idGenerator;
 	public String next(){
-		return prefix + counter++ + countryCode;
+		return prefix + idGenerator.next() + countryCode;
 	}
 
 	public String getPrefix(){
