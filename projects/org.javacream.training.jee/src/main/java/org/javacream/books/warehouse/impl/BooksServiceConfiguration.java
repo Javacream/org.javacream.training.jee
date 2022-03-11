@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.enterprise.inject.Produces;
 
 import org.javacream.books.warehouse.api.Book;
-import org.javacream.books.warehouse.api.BooksService.InMemoryStrategy;
 import org.javacream.util.Dev;
 import org.javacream.util.Prod;
 
