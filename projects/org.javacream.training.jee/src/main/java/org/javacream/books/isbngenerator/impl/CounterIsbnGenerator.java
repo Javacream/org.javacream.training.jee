@@ -1,11 +1,12 @@
 package org.javacream.books.isbngenerator.impl;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.util.Dev;
+import org.javacream.books.isbngenerator.api.SequenceStrategy;
 
 //@Vetoed
 //@Alternative
-@Dev
+//@Dev
+@SequenceStrategy
 public class CounterIsbnGenerator implements IsbnGenerator {
 
 	private String prefix;

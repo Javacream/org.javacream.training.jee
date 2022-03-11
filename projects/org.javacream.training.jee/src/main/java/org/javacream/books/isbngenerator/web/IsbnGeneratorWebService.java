@@ -9,12 +9,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.api.RandomStrategy;
+
 
 @Path("isbn")
 @ApplicationScoped
 public class IsbnGeneratorWebService {
 
-	@Inject
+	@Inject @RandomStrategy
 	private IsbnGenerator isbnGenerator;
 
 	@PostConstruct
