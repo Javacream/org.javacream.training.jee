@@ -5,4 +5,7 @@
 	<alternatives>
 		<stereotype>org.javacream.util.Dev</stereotype>
 	</alternatives>
+	<decorators>
+		<class>org.javacream.books.isbngenerator.impl.decorators.AuditIsbnGenerator</class>
+	</decorators>
 </beans>  
