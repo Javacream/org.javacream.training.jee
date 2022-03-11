@@ -1,13 +1,11 @@
 package org.javacream.books.warehouse.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 import org.javacream.books.warehouse.api.Book;
@@ -16,6 +14,7 @@ import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.books.warehouse.api.BooksService.InMemoryStrategy;
 import org.javacream.store.api.StoreService;
 import org.javacream.store.api.StoreService.SimpleStrategy;
+import org.javacream.util.aspect.Monitored;
 
 /**
  * @author Dr. Rainer Sawitzki
@@ -26,6 +25,7 @@ import org.javacream.store.api.StoreService.SimpleStrategy;
 
 @InMemoryStrategy
 @ApplicationScoped
+@Monitored
 public class MapBooksService implements BooksService {
 
 
@@ -62,11 +62,11 @@ public class MapBooksService implements BooksService {
 		}
 		result.setAvailable(storeService.getStock("books", isbn) > 0);
 		
-		return SerializationUtils.clone(result);
+		return result;
 	}
 
 	public Book updateBook(Book bookValue) throws BookException {
-		books.put(bookValue.getIsbn(), SerializationUtils.clone(bookValue)); 
+		books.put(bookValue.getIsbn(), bookValue); 
 		return bookValue;
 	}
 
@@ -80,7 +80,7 @@ public class MapBooksService implements BooksService {
 
 
 	public Collection<Book> findAllBooks() {
-		return SerializationUtils.clone(new ArrayList<Book>(books.values()));
+		return books.values();
 	}
 	public void setBooks(Map<String, Book> books) {
 		this.books = books;

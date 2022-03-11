@@ -7,8 +7,10 @@
 	</alternatives>
 	<decorators>
 		<class>org.javacream.books.isbngenerator.impl.decorators.AuditIsbnGenerator</class>
+		<class>org.javacream.books.warehouse.impl.decorators.DeepCopyingBooksService</class>
 	</decorators>
 	<interceptors>
 		<class>org.javacream.util.aspect.TracingInterceptor</class>
+		<class>org.javacream.util.aspect.MonitoringInterceptor</class>
 	</interceptors>
 </beans>  
