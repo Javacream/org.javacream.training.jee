@@ -4,10 +4,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
-import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
-import org.javacream.books.isbngenerator.impl.CounterIsbnGenerator;
-
 @ApplicationScoped
 public class ApplicationProducer {
 
@@ -19,10 +15,4 @@ public class ApplicationProducer {
 		return new String("Demo"); 
 	}
 	
-	@Produces @SequenceStrategy public IsbnGenerator sequenceIsbnGenerator(CounterIsbnGenerator sequenceIsbnGenerator) {
-		//CounterIsbnGenerator sequenceIsbnGenerator = new CounterIsbnGenerator();
-		sequenceIsbnGenerator.setPrefix("ISBN:");
-		sequenceIsbnGenerator.setCountryCode("-is");
-		return sequenceIsbnGenerator; 
-	}
 }
