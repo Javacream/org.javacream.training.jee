@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
 import org.javacream.util.Config;
+import org.javacream.util.aspect.Traced;
 @RequestScoped
 //@Prod
 @RandomStrategy
@@ -29,6 +30,7 @@ public class RandomIsbnGenerator implements IsbnGenerator {
 		random = new Random(this.hashCode() + System.currentTimeMillis());
 	}
 	
+	@Traced
 	public String next(){
 		return prefix + random.nextInt() + countryCode;
 	}

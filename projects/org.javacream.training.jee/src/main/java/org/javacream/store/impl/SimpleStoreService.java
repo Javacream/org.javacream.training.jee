@@ -1,7 +1,9 @@
 package org.javacream.store.impl;
 
 import org.javacream.store.api.StoreService;
+import org.javacream.util.aspect.Traced;
 
+@Traced
 public class SimpleStoreService implements StoreService {
 	private int stock;
 	

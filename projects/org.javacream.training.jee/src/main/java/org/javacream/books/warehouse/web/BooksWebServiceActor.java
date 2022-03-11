@@ -15,7 +15,7 @@ public class BooksWebServiceActor {
 
 	@Inject @InMemoryStrategy private BooksService booksService;
 	@GET @Produces (MediaType.TEXT_PLAIN) public String doSequence() throws BookException {
-		booksService.newBook("JEE");
-		return booksService.findAllBooks().toString();
+		String isbn = booksService.newBook("JEE");
+		return booksService.findBookByIsbn(isbn).toString();
 	}
 }
