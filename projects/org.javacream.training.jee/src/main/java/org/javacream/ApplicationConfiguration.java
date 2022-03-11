@@ -4,8 +4,10 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
+import org.javacream.util.Config;
+
 @ApplicationScoped
-public class ApplicationProducer {
+public class ApplicationConfiguration {
 
 	@PostConstruct public void init() {
 		System.out.println("initializing ApplicationProducer");
@@ -14,5 +16,13 @@ public class ApplicationProducer {
 	@Produces public String demo() {
 		return new String("Demo"); 
 	}
+
+	@Produces @Config(property = "isbngenerator.prefix") String prefix() {
+		return "ISBN:"; 
+	}
+	@Produces @Config(property = "isbngenerator.countryCode") String countryCode() {
+		return "-de"; 
+	}
+
 	
 }

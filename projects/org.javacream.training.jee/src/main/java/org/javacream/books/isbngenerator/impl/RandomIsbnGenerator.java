@@ -4,16 +4,18 @@ import java.util.Random;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
 import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
+import org.javacream.util.Config;
 @RequestScoped
 //@Prod
 @RandomStrategy
 public class RandomIsbnGenerator implements IsbnGenerator {
 
-	private String prefix;
-	private String countryCode;
+	@Inject @Config(property = "isbngenerator.prefix") private String prefix;
+	@Inject @Config(property = "isbngenerator.countryCode") private String countryCode;
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -25,10 +27,6 @@ public class RandomIsbnGenerator implements IsbnGenerator {
 	
 	@PostConstruct public void init(){
 		random = new Random(this.hashCode() + System.currentTimeMillis());
-		prefix = "ISBN:";
-		countryCode = "-dk";
-		System.out.println("initializing " + this);
-
 	}
 	
 	public String next(){
