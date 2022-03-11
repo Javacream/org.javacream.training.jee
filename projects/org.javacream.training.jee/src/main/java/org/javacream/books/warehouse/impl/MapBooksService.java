@@ -2,15 +2,19 @@ package org.javacream.books.warehouse.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+
+import javax.inject.Inject;
 
 import org.apache.commons.lang3.SerializationUtils;
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
+import org.javacream.books.warehouse.api.BooksService.InMemoryStrategy;
 import org.javacream.store.api.StoreService;
+import org.javacream.store.api.StoreService.SimpleStrategy;
 
 /**
  * @author Dr. Rainer Sawitzki
@@ -19,28 +23,14 @@ import org.javacream.store.api.StoreService;
  * 
  */
 
+@InMemoryStrategy
 public class MapBooksService implements BooksService {
 
-	public MapBooksService(){
-		this.books = new HashMap<String, Book>();
-	}
-	public MapBooksService(IsbnGenerator isbngenerator,
-			Map<String, Book> books, StoreService storeService) {
-		super();
-		this.isbnGenerator = isbngenerator;
-		this.books = books;
-		this.storeService = storeService;
-	}
 
-
-	private IsbnGenerator isbnGenerator;
-	private Map<String, Book> books;
-	private StoreService storeService;
+	@Inject @SequenceStrategy private IsbnGenerator isbnGenerator;
+	@Inject private Map<String, Book> books;
+	@Inject @SimpleStrategy private StoreService storeService;
 	
-	{
-		books = new HashMap<String, Book>();
-	}
-
 	
 	public void setStoreService(StoreService storeService) {
 		this.storeService = storeService;

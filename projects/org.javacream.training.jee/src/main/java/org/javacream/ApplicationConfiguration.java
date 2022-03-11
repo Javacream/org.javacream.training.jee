@@ -24,5 +24,8 @@ public class ApplicationConfiguration {
 		return "-de"; 
 	}
 
+	@Produces @Config(property = "storeService.defaultStock") int stock() {
+		return 42; 
+	}
 	
 }
