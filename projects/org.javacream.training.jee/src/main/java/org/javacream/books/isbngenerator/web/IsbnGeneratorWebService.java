@@ -1,15 +1,16 @@
 package org.javacream.books.isbngenerator.web;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.RandomStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.SequenceStrategy;
 
 
 @Path("isbn")
@@ -17,19 +18,19 @@ import org.javacream.books.isbngenerator.api.RandomStrategy;
 public class IsbnGeneratorWebService {
 
 	@Inject @RandomStrategy
-	private IsbnGenerator isbnGenerator;
-
-	@PostConstruct
-	public void init() {
-		System.out.println("initializing " + this + "using business " + isbnGenerator + ", business class is "
-				+ isbnGenerator.getClass().getName());
-
-	}
+	private IsbnGenerator randomIsbnGenerator;
+	@Inject @SequenceStrategy
+	private IsbnGenerator sequenceIsbnGenerator;
 
 	@GET
+	@Path("{strategy}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String next() {
-		System.out.println("generating isbn using " + this + ", using business " + isbnGenerator);
-		return isbnGenerator.next();
+	public String next(@PathParam("strategy") String strategy) {
+		if ("random".equals(strategy)) {
+			return randomIsbnGenerator.next();
+		}
+		else {
+			return sequenceIsbnGenerator.next();
+		}
 	}
 }

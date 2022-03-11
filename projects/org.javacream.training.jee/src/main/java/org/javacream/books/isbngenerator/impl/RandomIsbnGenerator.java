@@ -6,7 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
-import org.javacream.books.isbngenerator.api.RandomStrategy;
+import org.javacream.books.isbngenerator.api.IsbnGenerator.RandomStrategy;
 @RequestScoped
 //@Prod
 @RandomStrategy
