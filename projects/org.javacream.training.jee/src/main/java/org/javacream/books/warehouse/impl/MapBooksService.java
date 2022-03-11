@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.SerializationUtils;
@@ -24,6 +25,7 @@ import org.javacream.store.api.StoreService.SimpleStrategy;
  */
 
 @InMemoryStrategy
+@ApplicationScoped
 public class MapBooksService implements BooksService {
 
 
