@@ -28,9 +28,10 @@ import org.javacream.util.aspect.Monitored;
 @DatabaseStrategy
 @ApplicationScoped
 @Monitored
-@Transactional
+@Transactional(Transactional.TxType.REQUIRED)
 public class DatabaseBooksService implements BooksService {
 
+	@Inject BookDemo demo;
 	@Inject
 	@SequenceStrategy
 	private IsbnGenerator isbnGenerator;
@@ -67,7 +68,8 @@ public class DatabaseBooksService implements BooksService {
 			throw new BookException(BookException.BookExceptionType.NOT_FOUND, isbn);
 		}
 		result.setAvailable(storeService.getStock("books", isbn) > 0);
-
+		demo.doDemo(isbn);
+		System.out.println(result.getTitle());
 		return result;
 	}
 
