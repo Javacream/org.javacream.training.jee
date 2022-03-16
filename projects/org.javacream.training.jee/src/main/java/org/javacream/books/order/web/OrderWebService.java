@@ -7,12 +7,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.javacream.books.order.api.OrderService;
-import org.javacream.books.order.api.OrderService.InMemoryStrategy;
+import org.javacream.books.order.api.OrderService.DatabaseStrategy;
 
 @Path("order")
 public class OrderWebService {
 
-	@Inject @InMemoryStrategy OrderService orderService;
+	@Inject @DatabaseStrategy OrderService orderService;
 	@GET @Produces(MediaType.TEXT_PLAIN) public String doOrder() {
 		orderService.order("ISBN1", 10);
 		return orderService.allOrders().toString();

@@ -24,5 +24,11 @@ public interface OrderService {
 	public @interface InMemoryStrategy {
 
 	}
+	@Retention(RUNTIME)
+	@Target({ TYPE, FIELD, METHOD, PARAMETER })
+	@Qualifier
+	public @interface DatabaseStrategy {
+
+	}
 
 }

@@ -2,8 +2,19 @@ package org.javacream.books.order.api;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ORDERS")
 public class Order {
+	@Id
 	private Long orderId;
+
+	public Order() {
+	}
+
 	public Order(Long orderId, String isbn, int number, double totalPrice, OrderStatus status) {
 		super();
 		this.orderId = orderId;
@@ -63,7 +74,7 @@ public class Order {
 	private double totalPrice;
 	private OrderStatus status;
 
-	public enum OrderStatus{
+	public enum OrderStatus {
 		OK, PENDING, UNKNOWN;
 	}
 }
