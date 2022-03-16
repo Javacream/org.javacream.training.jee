@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.javacream.books.isbngenerator.api.IsbnGenerator;
@@ -74,7 +75,7 @@ public class DatabaseBooksService implements BooksService {
 		return entityManager.merge(bookValue);
 	}
 
-	public void deleteBookByIsbn(String isbn) throws BookException {
+	public void _deleteBookByIsbn(String isbn) throws BookException {
 		try {
 			Book toDelete = entityManager.getReference(Book.class, isbn);
 			entityManager.remove(toDelete);
@@ -83,9 +84,17 @@ public class DatabaseBooksService implements BooksService {
 		}
 	}
 
+	public void deleteBookByIsbn(String isbn) throws BookException {
+		Query query = entityManager.createNativeQuery("delete from BOOKS where isbn = :isbn");
+		query.setParameter("isbn", isbn);
+		int affected = query.executeUpdate();
+		if (affected == 0) {
+			throw new BookException(BookException.BookExceptionType.NOT_DELETED, isbn);
+		}
+	}
+
 	public Collection<Book> findAllBooks() {
 		return entityManager.createQuery("select b from Book as b", Book.class).getResultList();
 	}
-
 
 }
