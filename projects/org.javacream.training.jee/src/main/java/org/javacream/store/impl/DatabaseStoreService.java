@@ -14,23 +14,24 @@ import org.javacream.util.aspect.Traced;
  */
 
 @Traced
-@DatabaseStrategy 
+@DatabaseStrategy
 public class DatabaseStoreService implements StoreService {
-	
-	@PersistenceContext private EntityManager entityManager;
-	
+
+	@PersistenceContext
+	private EntityManager entityManager;
+
 	@Override
 	@Transactional(Transactional.TxType.REQUIRED)
 	public int getStock(String category, String item) {
-		Query query = entityManager.createNativeQuery("select stock from STORE where category= :category and item=:item");
+		Query query = entityManager
+				.createNativeQuery("select stock from STORE where category= :category and item=:item");
 		query.setParameter("category", category);
 		query.setParameter("item", item);
 		try {
-		Integer result = (Integer) query.getSingleResult();
-		return result;
-		}
-		catch(RuntimeException e) {
-			e.printStackTrace();
+			Integer result = (Integer) query.getSingleResult();
+			return result;
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
 			return 0;
 		}
 	}

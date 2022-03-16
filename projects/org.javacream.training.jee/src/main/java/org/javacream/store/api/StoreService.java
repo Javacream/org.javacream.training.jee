@@ -13,6 +13,7 @@ import javax.inject.Qualifier;
 
 public interface StoreService {
 	int getStock(String category, String item);
+
 	@Retention(RUNTIME)
 	@Target({ TYPE, FIELD, METHOD, PARAMETER })
 	@Qualifier

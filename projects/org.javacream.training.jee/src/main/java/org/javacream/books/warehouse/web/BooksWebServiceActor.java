@@ -8,12 +8,12 @@ import javax.ws.rs.core.MediaType;
 
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
-import org.javacream.books.warehouse.api.BooksService.InMemoryStrategy;
+import org.javacream.books.warehouse.api.BooksService.DatabaseStrategy;
 
 @Path("books")
 public class BooksWebServiceActor {
 
-	@Inject @InMemoryStrategy private BooksService booksService;
+	@Inject @DatabaseStrategy private BooksService booksService;
 	@GET @Produces (MediaType.TEXT_PLAIN) public String doSequence() throws BookException {
 		String isbn = booksService.newBook("JEE");
 		return booksService.findBookByIsbn(isbn).toString();
