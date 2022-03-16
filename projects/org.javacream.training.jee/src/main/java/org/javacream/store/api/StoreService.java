@@ -16,7 +16,7 @@ public interface StoreService {
 	@Retention(RUNTIME)
 	@Target({ TYPE, FIELD, METHOD, PARAMETER })
 	@Qualifier
-	public @interface SimpleStrategy {
+	public @interface DatabaseStrategy {
 
 	}
 

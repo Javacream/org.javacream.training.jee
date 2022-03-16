@@ -13,7 +13,7 @@ import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.books.warehouse.api.BooksService.InMemoryStrategy;
 import org.javacream.store.api.StoreService;
-import org.javacream.store.api.StoreService.SimpleStrategy;
+import org.javacream.store.api.StoreService.DatabaseStrategy;
 import org.javacream.util.aspect.Monitored;
 
 /**
@@ -31,7 +31,7 @@ public class MapBooksService implements BooksService {
 
 	@Inject @SequenceStrategy private IsbnGenerator isbnGenerator;
 	@Inject private Map<String, Book> books;
-	@Inject @SimpleStrategy private StoreService storeService;
+	@Inject @DatabaseStrategy private StoreService storeService;
 	
 	
 	public void setStoreService(StoreService storeService) {

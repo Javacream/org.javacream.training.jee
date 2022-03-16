@@ -17,7 +17,7 @@ import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
 import org.javacream.books.warehouse.api.BooksService;
 import org.javacream.store.api.StoreService;
-import org.javacream.store.api.StoreService.SimpleStrategy;
+import org.javacream.store.api.StoreService.DatabaseStrategy;
 import org.javacream.util.SequenceIdGenerator;
 
 @ApplicationScoped
@@ -26,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Inject @org.javacream.books.warehouse.api.BooksService.InMemoryStrategy 
 	private BooksService booksService;
-	@Inject @SimpleStrategy
+	@Inject @DatabaseStrategy
 	private StoreService storeService;
 	@Inject @Named("forOrderService")
 	SequenceIdGenerator idGenerator;

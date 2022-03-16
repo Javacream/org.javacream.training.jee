@@ -6,7 +6,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.javacream.store.api.StoreService;
-import org.javacream.store.api.StoreService.SimpleStrategy;
+import org.javacream.store.api.StoreService.DatabaseStrategy;
 import org.javacream.util.aspect.Traced;
 /*
  * create table STORE (category varchar(20), item varchar(20), stock integer, primary key (category, item))
@@ -14,7 +14,7 @@ import org.javacream.util.aspect.Traced;
  */
 
 @Traced
-@SimpleStrategy 
+@DatabaseStrategy 
 public class DatabaseStoreService implements StoreService {
 	
 	@PersistenceContext private EntityManager entityManager;
