@@ -13,4 +13,4 @@
   * 16 Unterrichtseinheiten mit jeweils etwa 90 Minuten
   * 9:00 - 16:15
   * Kaffeepausen 10:30 - 10:45 und 14:30 - 14:45
-  * Mittagspause 45’ 12:15-13:00
+  * Mittagspause 45’ 12:15-13:00 (Mittwoch, 16.3.2022: 13:00 - 14:00)
