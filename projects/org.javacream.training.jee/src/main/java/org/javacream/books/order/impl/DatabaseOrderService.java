@@ -3,6 +3,7 @@ package org.javacream.books.order.impl;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -11,6 +12,7 @@ import javax.transaction.Transactional;
 
 import org.javacream.books.order.api.Order;
 import org.javacream.books.order.api.Order.OrderStatus;
+import org.javacream.books.order.event.OrderEvent;
 import org.javacream.books.order.api.OrderService;
 import org.javacream.books.warehouse.api.Book;
 import org.javacream.books.warehouse.api.BookException;
@@ -52,6 +54,7 @@ public class DatabaseOrderService implements OrderService {
 		}
 		Order newOrder = new Order(idGenerator.next(), isbn, number, totalPrice, orderStatus);
 		entityManager.persist(newOrder);
+		orderProducer.fire(new OrderEvent(newOrder.getOrderId(), isbn, number, orderStatus == OrderStatus.OK));
 		return newOrder;
 	}
 
@@ -59,5 +62,7 @@ public class DatabaseOrderService implements OrderService {
 	public List<Order> allOrders() {
 		return entityManager.createQuery("select o from Order as o", Order.class).getResultList();
 	}
+	
+	@Inject private Event<OrderEvent> orderProducer;
 
 }
